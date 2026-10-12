@@ -810,7 +810,7 @@
     }
     .auth-input {
       width: 100%;
-      padding: 14px 16px;
+      padding: 14px 44px 14px 16px;
       border: 2px solid #e2e8f0;
       border-radius: 12px;
       font-size: 1.3rem;
@@ -887,7 +887,10 @@
       <div class="auth-subtitle">Espace Privé • RIADH BIZID (Lannemezan)</div>
 
       <form onsubmit="handleAuthSubmit(event)">
-        <input type="password" id="authPinInput" class="auth-input" placeholder="••••" maxlength="20" autofocus autocomplete="current-password">
+        <div style="position: relative; width: 100%;">
+          <input type="password" id="authPinInput" class="auth-input" placeholder="••••" maxlength="30" autofocus autocomplete="current-password">
+          <button type="button" onclick="togglePinVisibility()" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; font-size: 1.25rem; cursor: pointer; padding: 4px;" title="Afficher/Masquer">👁️</button>
+        </div>
         <div class="auth-error-msg" id="authErrorMsg"></div>
 
         <label class="auth-remember">
@@ -899,8 +902,14 @@
           🔓 Déverrouiller l'agenda
         </button>
       </form>
+
       <div style="font-size: 0.72rem; color: #94a3b8; margin-top: 14px;">
-        Code par défaut : <strong>2027</strong> (modifiable dans les paramètres)
+        Code par défaut : <strong>2027</strong>
+      </div>
+      <div style="margin-top: 8px;">
+        <button type="button" onclick="promptResetPin()" style="background: none; border: none; color: #3b82f6; font-size: 0.76rem; text-decoration: underline; cursor: pointer; font-weight: 500;">
+          🔑 Personnaliser ou changer le mot de passe
+        </button>
       </div>
     </div>
   </div>
@@ -1347,6 +1356,25 @@
     // Empreinte SHA-256 exacte de '2027'
     const DEFAULT_PIN_HASH = '5313e5bf17148de844ff74be3663d47c6e361ca469b30a36337701233c89a15e';
 
+    function togglePinVisibility() {
+      const pinIn = document.getElementById('authPinInput');
+      if (pinIn) {
+        pinIn.type = pinIn.type === 'password' ? 'text' : 'password';
+      }
+    }
+
+    function promptResetPin() {
+      const newCode = prompt("Choisissez votre nouveau code ou mot de passe personnel :");
+      if (newCode && newCode.trim().length >= 2) {
+        const trimmed = newCode.trim();
+        localStorage.setItem('sncf_custom_pin', trimmed);
+        sha256(trimmed).then(h => { if (h) localStorage.setItem('sncf_custom_pin_hash', h); });
+        const pinIn = document.getElementById('authPinInput');
+        if (pinIn) pinIn.value = trimmed;
+        alert("Votre nouveau mot de passe personnel est enregistré : " + trimmed + "\n\nVous pouvez cliquer sur 'Déverrouiller l'agenda' !");
+      }
+    }
+
     async function sha256(message) {
       try {
         if (!window.crypto || !window.crypto.subtle) return "";
@@ -1398,7 +1426,7 @@
       const activeHash = localStorage.getItem('sncf_custom_pin_hash') || DEFAULT_PIN_HASH;
       const enteredHash = await sha256(enteredValue);
 
-      // Double vérification infaillible (code direct 2027 OU hash)
+      // Double vérification infaillible (code direct 2027 OU code personnalisé OU hash)
       const isMatch = (enteredValue === '2027') ||
                       (activeCustomPin && enteredValue === activeCustomPin) ||
                       (enteredHash && (enteredHash === DEFAULT_PIN_HASH || enteredHash === activeHash));
@@ -1656,7 +1684,8 @@
       }
 
       if (firebaseConfig.url) {
-        const endpoint = firebaseConfig.url.replace(/\\/$/, '') + '/roulement_2027.json' + (firebaseConfig.pin ? '?auth=' + firebaseConfig.pin : '');
+        const cleanBase = firebaseConfig.url.endsWith('/') ? firebaseConfig.url.slice(0, -1) : firebaseConfig.url;
+        const endpoint = cleanBase + '/roulement_2027.json' + (firebaseConfig.pin ? '?auth=' + firebaseConfig.pin : '');
         fetch(endpoint, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
@@ -1667,7 +1696,8 @@
 
     async function syncWithFirebaseSilently() {
       if (!firebaseConfig.url) return;
-      const endpoint = firebaseConfig.url.replace(/\\/$/, '') + '/roulement_2027.json' + (firebaseConfig.pin ? '?auth=' + firebaseConfig.pin : '');
+      const cleanBase = firebaseConfig.url.endsWith('/') ? firebaseConfig.url.slice(0, -1) : firebaseConfig.url;
+      const endpoint = cleanBase + '/roulement_2027.json' + (firebaseConfig.pin ? '?auth=' + firebaseConfig.pin : '');
       try {
         const res = await fetch(endpoint);
         const data = await res.json();
