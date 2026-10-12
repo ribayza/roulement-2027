@@ -27,7 +27,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 <html lang="fr" data-theme="sonoma">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Roulement SNCF 2027 | Riadh Bizid</title>
   
   <!-- PWA & Mobile Web App Meta Tags -->
@@ -1186,9 +1186,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         </button>
       </form>
 
-      <div style="font-size:0.75rem; color:var(--text-muted); margin-top:16px;">
-        Code par défaut : <strong>2027</strong>
-      </div>
+      <div style="margin-top:16px;"></div>
       <div style="margin-top:8px;">
         <button type="button" onclick="promptResetPin()" style="background:none; border:none; color:var(--accent-color); font-size:0.78rem; font-weight:700; text-decoration:underline; cursor:pointer;">
           🔑 Personnaliser ou changer le mot de passe
@@ -1202,10 +1200,9 @@ HTML_CONTENT = """<!DOCTYPE html>
        ========================================================================== -->
   <header class="top-bar">
     <div class="persona-chip">
-      <div class="persona-avatar">RB</div>
+      <div class="persona-avatar">R</div>
       <div class="persona-text">
-        <h2>Riadh Bizid</h2>
-        <p>Lannemezan Infra • 7712336Z</p>
+        <h2>Riadh</h2>
       </div>
     </div>
 
@@ -1449,6 +1446,8 @@ HTML_CONTENT = """<!DOCTYPE html>
   <!-- Script Principal -->
   <script>
     const RAW_DAYS_DATA = ___DAYS_JSON___;
+    const _now = new Date();
+    const TODAY_STR = _now.getFullYear() + '-' + String(_now.getMonth() + 1).padStart(2, '0') + '-' + String(_now.getDate()).padStart(2, '0');
 
     const MONTH_NAMES = [
       "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
@@ -1464,20 +1463,23 @@ HTML_CONTENT = """<!DOCTYPE html>
     let isPuterConnected = false;
 
     // --- MULTI-THÈME (SONOMA / AMIE / GEMINI) ---
-    function setAppTheme(themeName) {
+    function setAppTheme(themeName, silent = false) {
       document.documentElement.setAttribute('data-theme', themeName);
       localStorage.setItem('sncf_active_theme', themeName);
 
-      document.getElementById('btnThemeSonoma').classList.toggle('active', themeName === 'sonoma');
-      document.getElementById('btnThemeAmie').classList.toggle('active', themeName === 'amie');
-      document.getElementById('btnThemeGemini').classList.toggle('active', themeName === 'gemini');
+      const bS = document.getElementById('btnThemeSonoma');
+      const bA = document.getElementById('btnThemeAmie');
+      const bG = document.getElementById('btnThemeGemini');
+      if (bS) bS.classList.toggle('active', themeName === 'sonoma');
+      if (bA) bA.classList.toggle('active', themeName === 'amie');
+      if (bG) bG.classList.toggle('active', themeName === 'gemini');
 
-      showToast(`Thème activé : ${themeName.toUpperCase()}`);
+      if (!silent) showToast(`Thème : ${themeName.toUpperCase()}`);
     }
 
     function initTheme() {
       const saved = localStorage.getItem('sncf_active_theme') || 'sonoma';
-      setAppTheme(saved);
+      setAppTheme(saved, true);
     }
 
     // --- SÉCURITÉ & PIN ---
@@ -1669,7 +1671,7 @@ HTML_CONTENT = """<!DOCTYPE html>
 
       days.forEach(day => {
         const cell = document.createElement('div');
-        cell.className = 'cal-cell';
+        cell.className = 'cal-cell' + (day.date === TODAY_STR ? ' active-day-circle' : '');
         const abs = userAbsences[day.date];
 
         if (abs) {
