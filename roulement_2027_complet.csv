@@ -1,0 +1,366 @@
+﻿Subject,Start Date,Start Time,End Date,End Time,All Day Event,Description,Location
+Repos (RP),01/01/2027,,01/01/2027,,True,Jour de repos (Repos Périodique) - Jour férié (Jour de l'An),
+Repos (RP),02/01/2027,,02/01/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+TNY003 (12h40 - 18h30),03/01/2027,12:40,03/01/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),04/01/2027,10:00,04/01/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),05/01/2027,10:00,05/01/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),06/01/2027,10:00,06/01/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),07/01/2027,,07/01/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RP),08/01/2027,,08/01/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+TNY002 (04h50 - 12h50),09/01/2027,04:50,09/01/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),10/01/2027,04:50,10/01/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),11/01/2027,03:50,11/01/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),12/01/2027,03:50,12/01/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),13/01/2027,,13/01/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),14/01/2027,,14/01/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY004 (16h20 - 00h00),15/01/2027,16:20,16/01/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),16/01/2027,18:30,17/01/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),17/01/2027,18:30,18/01/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),18/01/2027,,18/01/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),19/01/2027,,19/01/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),20/01/2027,10:00,20/01/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),21/01/2027,10:00,21/01/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),22/01/2027,10:00,22/01/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),23/01/2027,,23/01/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),24/01/2027,,24/01/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY002 (03h50 - 10h00),25/01/2027,03:50,25/01/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),26/01/2027,03:50,26/01/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),27/01/2027,03:50,27/01/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),28/01/2027,03:50,28/01/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),29/01/2027,,29/01/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+Repos (RP),30/01/2027,,30/01/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+TNY004 (18h30 - 00h00),31/01/2027,18:30,01/02/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),01/02/2027,16:20,02/02/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),02/02/2027,16:20,03/02/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),03/02/2027,16:20,04/02/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),04/02/2027,,04/02/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RU),05/02/2027,,05/02/2027,,True,Jour de repos (Repos Unique) - Semaine (Vendredi),
+TNY003 (12h40 - 18h30),06/02/2027,12:40,06/02/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),07/02/2027,12:40,07/02/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),08/02/2027,10:00,08/02/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),09/02/2027,10:00,09/02/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),10/02/2027,,10/02/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),11/02/2027,,11/02/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),12/02/2027,03:50,12/02/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),13/02/2027,04:50,13/02/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),14/02/2027,04:50,14/02/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),15/02/2027,03:50,15/02/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),16/02/2027,,16/02/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+Repos (RU),17/02/2027,,17/02/2027,,True,Jour de repos (Repos Unique) - Semaine (Mercredi),
+TNY004 (16h20 - 00h00),18/02/2027,16:20,19/02/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),19/02/2027,16:20,20/02/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),20/02/2027,18:30,21/02/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),21/02/2027,18:30,22/02/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),22/02/2027,,22/02/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),23/02/2027,,23/02/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),24/02/2027,10:00,24/02/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),25/02/2027,10:00,25/02/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),26/02/2027,10:00,26/02/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),27/02/2027,,27/02/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),28/02/2027,,28/02/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY004 (16h20 - 00h00),01/03/2027,16:20,02/03/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),02/03/2027,16:20,03/03/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),03/03/2027,16:20,04/03/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),04/03/2027,,04/03/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RP),05/03/2027,,05/03/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+TNY003 (12h40 - 18h30),06/03/2027,12:40,06/03/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),07/03/2027,12:40,07/03/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),08/03/2027,10:00,08/03/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),09/03/2027,10:00,09/03/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),10/03/2027,,10/03/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),11/03/2027,,11/03/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),12/03/2027,03:50,12/03/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),13/03/2027,04:50,13/03/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),14/03/2027,04:50,14/03/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),15/03/2027,03:50,15/03/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RU),16/03/2027,,16/03/2027,,True,Jour de repos (Repos Unique) - Semaine (Mardi),
+Repos (RP),17/03/2027,,17/03/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+TNY004 (16h20 - 00h00),18/03/2027,16:20,19/03/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),19/03/2027,16:20,20/03/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),20/03/2027,18:30,21/03/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),21/03/2027,18:30,22/03/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),22/03/2027,,22/03/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),23/03/2027,,23/03/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),24/03/2027,10:00,24/03/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),25/03/2027,10:00,25/03/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),26/03/2027,10:00,26/03/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),27/03/2027,,27/03/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),28/03/2027,,28/03/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+Repos (RU),29/03/2027,,29/03/2027,,True,Jour de repos (Repos Unique) - Jour férié (Lundi de Pâques),
+TNY002 (03h50 - 10h00),30/03/2027,03:50,30/03/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),31/03/2027,03:50,31/03/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),01/04/2027,03:50,01/04/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),02/04/2027,03:50,02/04/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),03/04/2027,,03/04/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),04/04/2027,,04/04/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY004 (16h20 - 00h00),05/04/2027,16:20,06/04/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),06/04/2027,16:20,07/04/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),07/04/2027,16:20,08/04/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),08/04/2027,16:20,09/04/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),09/04/2027,,09/04/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+Repos (RP),10/04/2027,,10/04/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+TNY003 (12h40 - 18h30),11/04/2027,12:40,11/04/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),12/04/2027,10:00,12/04/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),13/04/2027,10:00,13/04/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),14/04/2027,,14/04/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),15/04/2027,,15/04/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),16/04/2027,03:50,16/04/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),17/04/2027,04:50,17/04/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),18/04/2027,04:50,18/04/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),19/04/2027,,19/04/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),20/04/2027,,20/04/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY004 (16h20 - 00h00),21/04/2027,16:20,22/04/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),22/04/2027,16:20,23/04/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),23/04/2027,16:20,24/04/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),24/04/2027,18:30,25/04/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),25/04/2027,,25/04/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+Repos (RP),26/04/2027,,26/04/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+TNY003 (10h00 - 16h20),27/04/2027,10:00,27/04/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),28/04/2027,10:00,28/04/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),29/04/2027,10:00,29/04/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),30/04/2027,10:00,30/04/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),01/05/2027,,01/05/2027,,True,Jour de repos (Repos Périodique) - Jour férié (Fête du Travail),
+Repos (RP),02/05/2027,,02/05/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY002 (03h50 - 10h00),03/05/2027,03:50,03/05/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),04/05/2027,03:50,04/05/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),05/05/2027,03:50,05/05/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),06/05/2027,04:50,06/05/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Jour férié (Ascension) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RU),07/05/2027,,07/05/2027,,True,Jour de repos (Repos Unique) - Semaine (Vendredi),
+Repos (RP),08/05/2027,,08/05/2027,,True,Jour de repos (Repos Périodique) - Jour férié (Victoire 1945),
+Repos (RP),09/05/2027,,09/05/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY004 (16h20 - 00h00),10/05/2027,16:20,11/05/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),11/05/2027,16:20,12/05/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),12/05/2027,16:20,13/05/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),13/05/2027,,13/05/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RP),14/05/2027,,14/05/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+TNY003 (12h40 - 18h30),15/05/2027,12:40,15/05/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),16/05/2027,12:40,16/05/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),17/05/2027,12:40,17/05/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Jour férié (Lundi de Pentecôte) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),18/05/2027,10:00,18/05/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),19/05/2027,,19/05/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),20/05/2027,,20/05/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),21/05/2027,03:50,21/05/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),22/05/2027,04:50,22/05/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),23/05/2027,04:50,23/05/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),24/05/2027,03:50,24/05/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),25/05/2027,,25/05/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+Repos (RP),26/05/2027,,26/05/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+TNY004 (16h20 - 00h00),27/05/2027,16:20,28/05/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),28/05/2027,16:20,29/05/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),29/05/2027,18:30,30/05/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),30/05/2027,18:30,31/05/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),31/05/2027,,31/05/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),01/06/2027,,01/06/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),02/06/2027,10:00,02/06/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),03/06/2027,10:00,03/06/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),04/06/2027,10:00,04/06/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),05/06/2027,,05/06/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),06/06/2027,,06/06/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+Repos (RU),07/06/2027,,07/06/2027,,True,Jour de repos (Repos Unique) - Semaine (Lundi),
+TNY002 (03h50 - 10h00),08/06/2027,03:50,08/06/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),09/06/2027,03:50,09/06/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),10/06/2027,03:50,10/06/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),11/06/2027,03:50,11/06/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),12/06/2027,,12/06/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),13/06/2027,,13/06/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY004 (16h20 - 00h00),14/06/2027,16:20,15/06/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),15/06/2027,16:20,16/06/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),16/06/2027,16:20,17/06/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),17/06/2027,16:20,18/06/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),18/06/2027,,18/06/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+Repos (RP),19/06/2027,,19/06/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+TNY003 (12h40 - 18h30),20/06/2027,12:40,20/06/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),21/06/2027,10:00,21/06/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),22/06/2027,10:00,22/06/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),23/06/2027,10:00,23/06/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),24/06/2027,,24/06/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RP),25/06/2027,,25/06/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+TNY002 (04h50 - 12h50),26/06/2027,04:50,26/06/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),27/06/2027,04:50,27/06/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),28/06/2027,03:50,28/06/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),29/06/2027,03:50,29/06/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),30/06/2027,,30/06/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),01/07/2027,,01/07/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY004 (16h20 - 00h00),02/07/2027,16:20,03/07/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),03/07/2027,18:30,04/07/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),04/07/2027,18:30,05/07/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),05/07/2027,,05/07/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),06/07/2027,,06/07/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),07/07/2027,10:00,07/07/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),08/07/2027,10:00,08/07/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),09/07/2027,10:00,09/07/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),10/07/2027,,10/07/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),11/07/2027,,11/07/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY002 (03h50 - 10h00),12/07/2027,03:50,12/07/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),13/07/2027,03:50,13/07/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),14/07/2027,04:50,14/07/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Jour férié (Fête Nationale) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),15/07/2027,03:50,15/07/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),16/07/2027,,16/07/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+Repos (RP),17/07/2027,,17/07/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+TNY004 (18h30 - 00h00),18/07/2027,18:30,19/07/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),19/07/2027,16:20,20/07/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),20/07/2027,16:20,21/07/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),21/07/2027,16:20,22/07/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),22/07/2027,,22/07/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RU),23/07/2027,,23/07/2027,,True,Jour de repos (Repos Unique) - Semaine (Vendredi),
+TNY003 (12h40 - 18h30),24/07/2027,12:40,24/07/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),25/07/2027,12:40,25/07/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),26/07/2027,10:00,26/07/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),27/07/2027,10:00,27/07/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),28/07/2027,,28/07/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),29/07/2027,,29/07/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),30/07/2027,03:50,30/07/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),31/07/2027,04:50,31/07/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),01/08/2027,04:50,01/08/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),02/08/2027,03:50,02/08/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),03/08/2027,,03/08/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+Repos (RU),04/08/2027,,04/08/2027,,True,Jour de repos (Repos Unique) - Semaine (Mercredi),
+TNY004 (16h20 - 00h00),05/08/2027,16:20,06/08/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),06/08/2027,16:20,07/08/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),07/08/2027,18:30,08/08/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),08/08/2027,18:30,09/08/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),09/08/2027,,09/08/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),10/08/2027,,10/08/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),11/08/2027,10:00,11/08/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),12/08/2027,10:00,12/08/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),13/08/2027,10:00,13/08/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),14/08/2027,,14/08/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),15/08/2027,,15/08/2027,,True,Jour de repos (Repos Périodique) - Jour férié (Assomption),
+TNY004 (16h20 - 00h00),16/08/2027,16:20,17/08/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),17/08/2027,16:20,18/08/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),18/08/2027,16:20,19/08/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),19/08/2027,,19/08/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RP),20/08/2027,,20/08/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+TNY003 (12h40 - 18h30),21/08/2027,12:40,21/08/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),22/08/2027,12:40,22/08/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),23/08/2027,10:00,23/08/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),24/08/2027,10:00,24/08/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),25/08/2027,,25/08/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),26/08/2027,,26/08/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),27/08/2027,03:50,27/08/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),28/08/2027,04:50,28/08/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),29/08/2027,04:50,29/08/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),30/08/2027,03:50,30/08/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RU),31/08/2027,,31/08/2027,,True,Jour de repos (Repos Unique) - Semaine (Mardi),
+Repos (RP),01/09/2027,,01/09/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+TNY004 (16h20 - 00h00),02/09/2027,16:20,03/09/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),03/09/2027,16:20,04/09/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),04/09/2027,18:30,05/09/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),05/09/2027,18:30,06/09/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),06/09/2027,,06/09/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),07/09/2027,,07/09/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),08/09/2027,10:00,08/09/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),09/09/2027,10:00,09/09/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),10/09/2027,10:00,10/09/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),11/09/2027,,11/09/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),12/09/2027,,12/09/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+Repos (RU),13/09/2027,,13/09/2027,,True,Jour de repos (Repos Unique) - Semaine (Lundi),
+TNY002 (03h50 - 10h00),14/09/2027,03:50,14/09/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),15/09/2027,03:50,15/09/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),16/09/2027,03:50,16/09/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),17/09/2027,03:50,17/09/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),18/09/2027,,18/09/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),19/09/2027,,19/09/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY004 (16h20 - 00h00),20/09/2027,16:20,21/09/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),21/09/2027,16:20,22/09/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),22/09/2027,16:20,23/09/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),23/09/2027,16:20,24/09/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),24/09/2027,,24/09/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+Repos (RP),25/09/2027,,25/09/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+TNY003 (12h40 - 18h30),26/09/2027,12:40,26/09/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),27/09/2027,10:00,27/09/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),28/09/2027,10:00,28/09/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),29/09/2027,,29/09/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),30/09/2027,,30/09/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),01/10/2027,03:50,01/10/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),02/10/2027,04:50,02/10/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),03/10/2027,04:50,03/10/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),04/10/2027,,04/10/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),05/10/2027,,05/10/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY004 (16h20 - 00h00),06/10/2027,16:20,07/10/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),07/10/2027,16:20,08/10/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),08/10/2027,16:20,09/10/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),09/10/2027,18:30,10/10/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),10/10/2027,,10/10/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+Repos (RP),11/10/2027,,11/10/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+TNY003 (10h00 - 16h20),12/10/2027,10:00,12/10/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),13/10/2027,10:00,13/10/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),14/10/2027,10:00,14/10/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),15/10/2027,10:00,15/10/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),16/10/2027,,16/10/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),17/10/2027,,17/10/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY002 (03h50 - 10h00),18/10/2027,03:50,18/10/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),19/10/2027,03:50,19/10/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),20/10/2027,03:50,20/10/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),21/10/2027,03:50,21/10/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RU),22/10/2027,,22/10/2027,,True,Jour de repos (Repos Unique) - Semaine (Vendredi),
+Repos (RP),23/10/2027,,23/10/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),24/10/2027,,24/10/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY004 (16h20 - 00h00),25/10/2027,16:20,26/10/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),26/10/2027,16:20,27/10/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),27/10/2027,16:20,28/10/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),28/10/2027,,28/10/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RP),29/10/2027,,29/10/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+TNY003 (12h40 - 18h30),30/10/2027,12:40,30/10/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),31/10/2027,12:40,31/10/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (12h40 - 18h30),01/11/2027,12:40,01/11/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Jour férié (Toussaint) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),02/11/2027,10:00,02/11/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),03/11/2027,,03/11/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),04/11/2027,,04/11/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY002 (03h50 - 10h00),05/11/2027,03:50,05/11/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),06/11/2027,04:50,06/11/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),07/11/2027,04:50,07/11/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),08/11/2027,03:50,08/11/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),09/11/2027,,09/11/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+Repos (RP),10/11/2027,,10/11/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+TNY004 (18h30 - 00h00),11/11/2027,18:30,12/11/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Jour férié (Armistice 1918) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),12/11/2027,16:20,13/11/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),13/11/2027,18:30,14/11/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),14/11/2027,18:30,15/11/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),15/11/2027,,15/11/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),16/11/2027,,16/11/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),17/11/2027,10:00,17/11/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),18/11/2027,10:00,18/11/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),19/11/2027,10:00,19/11/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),20/11/2027,,20/11/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),21/11/2027,,21/11/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+Repos (RU),22/11/2027,,22/11/2027,,True,Jour de repos (Repos Unique) - Semaine (Lundi),
+TNY002 (03h50 - 10h00),23/11/2027,03:50,23/11/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),24/11/2027,03:50,24/11/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),25/11/2027,03:50,25/11/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),26/11/2027,03:50,26/11/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),27/11/2027,,27/11/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+Repos (RP),28/11/2027,,28/11/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY004 (16h20 - 00h00),29/11/2027,16:20,30/11/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),30/11/2027,16:20,01/12/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),01/12/2027,16:20,02/12/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (16h20 - 00h00),02/12/2027,16:20,03/12/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),03/12/2027,,03/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+Repos (RP),04/12/2027,,04/12/2027,,True,Jour de repos (Repos Périodique) - Week-end (Samedi),
+TNY003 (12h40 - 18h30),05/12/2027,12:40,05/12/2027,18:30,False,Poste TNY003 - Horaires 12h40 - 18h30 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),06/12/2027,10:00,06/12/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),07/12/2027,10:00,07/12/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),08/12/2027,10:00,08/12/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),09/12/2027,,09/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+Repos (RP),10/12/2027,,10/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
+TNY002 (04h50 - 12h50),11/12/2027,04:50,11/12/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (04h50 - 12h50),12/12/2027,04:50,12/12/2027,12:50,False,Poste TNY002 - Horaires 04h50 - 12h50 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),13/12/2027,03:50,13/12/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),14/12/2027,03:50,14/12/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),15/12/2027,,15/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mercredi),
+Repos (RP),16/12/2027,,16/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Jeudi),
+TNY004 (16h20 - 00h00),17/12/2027,16:20,18/12/2027,00:00,False,Poste TNY004 - Horaires 16h20 - 00h00 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),18/12/2027,18:30,19/12/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Samedi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY004 (18h30 - 00h00),19/12/2027,18:30,20/12/2027,00:00,False,Poste TNY004 - Horaires 18h30 - 00h00 - Week-end (Dimanche) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),20/12/2027,,20/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Lundi),
+Repos (RP),21/12/2027,,21/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Mardi),
+TNY003 (10h00 - 16h20),22/12/2027,10:00,22/12/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),23/12/2027,10:00,23/12/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY003 (10h00 - 16h20),24/12/2027,10:00,24/12/2027,16:20,False,Poste TNY003 - Horaires 10h00 - 16h20 - Semaine (Vendredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),25/12/2027,,25/12/2027,,True,Jour de repos (Repos Périodique) - Jour férié (Noël),
+Repos (RP),26/12/2027,,26/12/2027,,True,Jour de repos (Repos Périodique) - Week-end (Dimanche),
+TNY002 (03h50 - 10h00),27/12/2027,03:50,27/12/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Lundi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),28/12/2027,03:50,28/12/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mardi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),29/12/2027,03:50,29/12/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Mercredi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+TNY002 (03h50 - 10h00),30/12/2027,03:50,30/12/2027,10:00,False,Poste TNY002 - Horaires 03h50 - 10h00 - Semaine (Jeudi) - Lannemezan Infra,676528 LANNEMEZAN INFRA
+Repos (RP),31/12/2027,,31/12/2027,,True,Jour de repos (Repos Périodique) - Semaine (Vendredi),
