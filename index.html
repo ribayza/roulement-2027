@@ -229,6 +229,14 @@
       from { transform: scale(0.92); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
+    @keyframes authShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+    .auth-shake {
+      animation: authShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
     .auth-avatar {
       width: 68px;
       height: 68px;
@@ -1496,11 +1504,10 @@
 
       if (!val) { err.innerText = "Veuillez saisir votre code."; return; }
 
-      const customPin = localStorage.getItem('sncf_custom_pin') || '';
       const customHash = localStorage.getItem('sncf_custom_pin_hash') || DEFAULT_PIN_HASH;
       const enteredHash = await sha256(val);
 
-      const ok = (val === '2027') || (customPin && val === customPin) || (enteredHash === DEFAULT_PIN_HASH || enteredHash === customHash);
+      const ok = (val === '2027') || (enteredHash === DEFAULT_PIN_HASH) || (enteredHash === customHash);
 
       if (ok) {
         err.innerText = "";
@@ -1531,23 +1538,29 @@
       showToast("Agenda verrouillé 🔒");
     }
 
-    function promptResetPin() {
+    async function promptResetPin() {
       const n = prompt("Entrez votre nouveau code secret :");
       if (n && n.trim().length >= 2) {
         const trimmed = n.trim();
-        localStorage.setItem('sncf_custom_pin', trimmed);
-        sha256(trimmed).then(h => { if (h) localStorage.setItem('sncf_custom_pin_hash', h); });
+        const hash = await sha256(trimmed);
+        if (hash) {
+          localStorage.setItem('sncf_custom_pin_hash', hash);
+          localStorage.removeItem('sncf_custom_pin');
+        }
         const p = document.getElementById('authPinInput');
         if (p) p.value = trimmed;
-        alert("Nouveau code enregistré : " + trimmed + "\nCliquez sur Déverrouiller !");
+        alert("Nouveau code enregistré !\nCliquez sur Déverrouiller !");
       }
     }
 
-    function saveNewPin() {
+    async function saveNewPin() {
       const p = document.getElementById('inputNewPin').value.trim();
       if (!p || p.length < 2) { alert("Code trop court (2 caractères minimum)."); return; }
-      localStorage.setItem('sncf_custom_pin', p);
-      sha256(p).then(h => { if (h) localStorage.setItem('sncf_custom_pin_hash', h); });
+      const hash = await sha256(p);
+      if (hash) {
+        localStorage.setItem('sncf_custom_pin_hash', hash);
+        localStorage.removeItem('sncf_custom_pin');
+      }
       document.getElementById('inputNewPin').value = '';
       closeSettingsModal();
       showToast("Nouveau mot de passe enregistré 🔒");
@@ -1584,6 +1597,8 @@
       renderCurrentView();
     }
 
+    const TOTAL_BASE_WORK_DAYS = RAW_DAYS_DATA.filter(d => d.isWork).length;
+
     function updateAllStats() {
       let vtPend = 0, vtAcc = 0;
       let caPend = 0, caAcc = 0;
@@ -1600,7 +1615,7 @@
 
       const vtRest = Math.max(0, quotaVT - vtAcc - vtPend);
       const caRest = Math.max(0, quotaConge - caAcc - caPend);
-      const workReal = 232 - (vtAcc + caAcc);
+      const workReal = Math.max(0, TOTAL_BASE_WORK_DAYS - (vtAcc + caAcc));
 
       // Capsules
       document.getElementById('capVTPending').innerText = vtPend;
@@ -1765,6 +1780,20 @@
       document.getElementById('modalDayTitle').innerText = `${day.weekday} ${day.day} ${MONTH_NAMES[day.month-1]} 2027`;
       document.getElementById('modalDaySubtitle').innerText = `Poste : ${day.baseCode} ${day.hoursLabel ? '(' + day.hoursLabel + ')' : '(Repos)'}`;
 
+      const isRestDay = !day.isWork;
+      const btnVT = document.getElementById('btnModalVT');
+      const btnCA = document.getElementById('btnModalCA');
+      if (btnVT && btnCA) {
+        btnVT.disabled = isRestDay;
+        btnCA.disabled = isRestDay;
+        btnVT.style.opacity = isRestDay ? '0.35' : '1';
+        btnCA.style.opacity = isRestDay ? '0.35' : '1';
+        btnVT.style.cursor = isRestDay ? 'not-allowed' : 'pointer';
+        btnCA.style.cursor = isRestDay ? 'not-allowed' : 'pointer';
+        btnVT.title = isRestDay ? 'Impossible de poser un congé sur un jour de Repos' : '';
+        btnCA.title = isRestDay ? 'Impossible de poser un congé sur un jour de Repos' : '';
+      }
+
       const abs = userAbsences[dateStr];
       const stSec = document.getElementById('modalStatusSection');
       const delSec = document.getElementById('modalDeleteSection');
@@ -1786,6 +1815,11 @@
 
     function applyAbsenceType(type) {
       if (!activeDayDate) return;
+      const day = RAW_DAYS_DATA.find(d => d.date === activeDayDate);
+      if (day && !day.isWork) {
+        showToast("Impossible de poser un congé sur un Repos !", "⚠️");
+        return;
+      }
       if (!userAbsences[activeDayDate]) {
         userAbsences[activeDayDate] = { type: type, status: 'pending' };
       } else {
@@ -1887,16 +1921,30 @@
     }
 
     window.addEventListener('focus', () => { if (isPuterConnected) syncWithPuter(true); });
-    setInterval(() => { if (isPuterConnected) syncWithPuter(true); }, 10000);
+    setInterval(() => {
+      if (isPuterConnected && document.visibilityState === 'visible') {
+        syncWithPuter(true);
+      }
+    }, 15000);
 
     function loadFromUrlHash() {
       if (window.location.hash && window.location.hash.startsWith('#sync=')) {
         try {
           const raw = decodeURIComponent(window.location.hash.slice(6));
           const parsed = JSON.parse(raw);
-          if (parsed.vt) quotaVT = parsed.vt;
-          if (parsed.ca) quotaConge = parsed.ca;
-          if (parsed.abs) userAbsences = parsed.abs;
+          if (parsed.vt !== undefined) quotaVT = parsed.vt;
+          if (parsed.ca !== undefined) quotaConge = parsed.ca;
+          if (parsed.a) {
+            userAbsences = {};
+            Object.keys(parsed.a).forEach(dt => {
+              const code = parsed.a[dt];
+              const type = code[0] === 'C' ? 'CA' : 'VT';
+              const status = code[1] === '2' ? 'accepted' : (code[1] === '3' ? 'rejected' : 'pending');
+              userAbsences[dt] = { type, status };
+            });
+          } else if (parsed.abs) {
+            userAbsences = parsed.abs;
+          }
           saveData();
           loadSavedData();
           updateAllStats();
@@ -1911,9 +1959,22 @@
       const el = document.getElementById('qrcodeArea');
       if (!el || typeof QRCode === 'undefined') return;
       el.innerHTML = '';
-      const payload = { vt: quotaVT, ca: quotaConge, abs: userAbsences };
+      const compactAbs = {};
+      Object.keys(userAbsences).forEach(dt => {
+        const item = userAbsences[dt];
+        const t = item.type === 'CA' ? 'C' : 'V';
+        const s = item.status === 'accepted' ? '2' : (item.status === 'rejected' ? '3' : '1');
+        compactAbs[dt] = t + s;
+      });
+      const payload = { vt: quotaVT, ca: quotaConge, a: compactAbs };
       const url = window.location.origin + window.location.pathname + '#sync=' + encodeURIComponent(JSON.stringify(payload));
       new QRCode(el, { text: url, width: 200, height: 200, colorDark: "#0f172a", colorLight: "#ffffff" });
+    }
+
+    function addOneDayStr(dateStr) {
+      const parts = dateStr.split('-').map(Number);
+      const d = new Date(Date.UTC(parts[0], parts[1] - 1, parts[2] + 1));
+      return d.toISOString().slice(0, 10);
     }
 
     function exportUpdatedICS() {
@@ -1922,21 +1983,17 @@
       RAW_DAYS_DATA.forEach(d => {
         const abs = userAbsences[d.date];
         const dateClean = d.date.replace(/-/g, "");
+        const nextDayClean = addOneDayStr(d.date).replace(/-/g, "");
         if (abs && abs.status === 'accepted') {
-          const nextDay = new Date(d.date);
-          nextDay.setDate(nextDay.getDate() + 1);
-          const nextDayStr = nextDay.toISOString().slice(0, 10).replace(/-/g, "");
           const label = abs.type === 'VT' ? 'VT (Temps Partiel)' : 'Congé Annuel';
-          ics += `BEGIN:VEVENT\r\nUID:sncf-${dateClean}-abs@roulement\r\nDTSTAMP:${nowUtc}\r\nDTSTART;VALUE=DATE:${dateClean}\r\nDTEND;VALUE=DATE:${nextDayStr}\r\nSUMMARY:${label}\r\nSTATUS:CONFIRMED\r\nEND:VEVENT\r\n`;
+          ics += `BEGIN:VEVENT\r\nUID:sncf-${dateClean}-abs@roulement\r\nDTSTAMP:${nowUtc}\r\nDTSTART;VALUE=DATE:${dateClean}\r\nDTEND;VALUE=DATE:${nextDayClean}\r\nSUMMARY:${label}\r\nSTATUS:CONFIRMED\r\nEND:VEVENT\r\n`;
         } else if (d.isWork) {
           const s = d.startTime.split(":");
           const e = d.endTime.split(":");
           const dtStart = `${dateClean}T${s[0]}${s[1]}00`;
           let dtEnd = "";
           if (d.endTime === "00:00") {
-            const nextDay = new Date(d.date);
-            nextDay.setDate(nextDay.getDate() + 1);
-            dtEnd = `${nextDay.toISOString().slice(0, 10).replace(/-/g, "")}T000000`;
+            dtEnd = `${nextDayClean}T000000`;
           } else {
             dtEnd = `${dateClean}T${e[0]}${e[1]}00`;
           }
