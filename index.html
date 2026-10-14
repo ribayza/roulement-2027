@@ -316,6 +316,99 @@
     .auth-btn-unlock:active {
       transform: scale(0.97);
     }
+    .auth-btn-google {
+      width: 100%;
+      min-height: 52px;
+      background: #ffffff;
+      color: #1f2937;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: var(--radius-md);
+      font-size: 0.96rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 12px;
+    }
+    .auth-btn-google:hover {
+      background: #f9fafb;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+    .auth-btn-google:active {
+      transform: scale(0.98);
+    }
+    [data-theme="dark"] .auth-btn-google,
+    [data-theme="gemini"] .auth-btn-google {
+      background: rgba(255, 255, 255, 0.95);
+      color: #0f172a;
+    }
+    .auth-btn-bio {
+      width: 100%;
+      min-height: 52px;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.15));
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: var(--text-main);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(168, 85, 247, 0.12);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      margin-bottom: 12px;
+    }
+    .auth-btn-bio:hover {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(168, 85, 247, 0.25));
+      transform: translateY(-2px);
+    }
+    .auth-btn-bio:active {
+      transform: scale(0.98);
+    }
+    .auth-divider {
+      margin: 16px 0 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--card-elevated-border);
+    }
+    .auth-divider span {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+    .auth-fallback-toggle {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .auth-fallback-toggle:hover {
+      color: var(--accent-color);
+    }
 
     /* ==========================================================================
        TOP BAR & SÉLECTEUR DE THÈMES (SONOMA / AMIE / GEMINI)
@@ -501,143 +594,103 @@
       }
     }
 
-    /* ==========================================================================
-       BARRE DE MÉTRIQUES UNIFIÉE & COMPACTE (STYLE LINEAR / AMIE MODERNE)
-       ========================================================================== */
-    .metrics-bar {
+    /* Capsule Quotas VT & CA (Amie & Layers Style) */
+    .quotas-capsules-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 14px;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
       width: 100%;
     }
-    @media (max-width: 640px) {
-      .metrics-bar {
-        gap: 6px;
-        margin-bottom: 10px;
+    @media (min-width: 640px) {
+      .quotas-capsules-row {
+        grid-template-columns: 1fr 1fr;
       }
     }
-    .metric-card {
+    @media (max-width: 640px) {
+      .quotas-capsules-row {
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+    }
+    .quota-capsule {
       background: var(--card-elevated-bg);
       border: var(--card-elevated-border);
-      border-radius: var(--radius-md);
-      padding: 10px 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      min-width: 0;
-    }
-    @media (max-width: 640px) {
-      .metric-card {
-        padding: 7px 6px;
-        gap: 5px;
-        border-radius: 12px;
-      }
-    }
-    .metric-card:hover {
-      transform: translateY(-2px);
-    }
-    .metric-vt { border-bottom: 3px solid #0284c7; }
-    .metric-ca { border-bottom: 3px solid #ec4899; }
-    .metric-work { border-bottom: 3px solid #10b981; }
-
-    .metric-icon-box {
-      font-size: 1.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    @media (max-width: 640px) {
-      .metric-icon-box {
-        font-size: 1.05rem;
-      }
-    }
-    .metric-content {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      flex: 1;
-    }
-    .metric-meta {
+      border-radius: var(--radius-lg);
+      padding: 16px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 4px;
-      margin-bottom: 2px;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      transition: transform 0.2s ease;
     }
-    .metric-title {
-      font-size: 0.72rem;
+    @media (max-width: 640px) {
+      .quota-capsule {
+        padding: 10px 14px;
+        gap: 10px;
+        border-radius: 14px;
+      }
+    }
+    .quota-capsule:hover {
+      transform: translateY(-2px);
+    }
+    .capsule-vt {
+      border-left: 4px solid #0284c7;
+    }
+    .capsule-ca {
+      border-left: 4px solid #ec4899;
+    }
+    .capsule-title {
+      font-size: 0.95rem;
       font-weight: 800;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    @media (max-width: 640px) {
+      .capsule-title {
+        font-size: 0.85rem;
+      }
+    }
+    .capsule-details {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    @media (max-width: 640px) {
+      .capsule-details {
+        font-size: 0.72rem;
+        margin-top: 2px;
+      }
+    }
+    .capsule-big-number {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1;
+      text-align: right;
+    }
+    @media (max-width: 640px) {
+      .capsule-big-number {
+        font-size: 1.45rem;
+      }
+    }
+    .capsule-vt .capsule-big-number { color: #0284c7; }
+    .capsule-ca .capsule-big-number { color: #ec4899; }
+    .capsule-subtext {
+      font-size: 0.72rem;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.03em;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .title-short { display: none; }
-    .title-full { display: inline; }
-    @media (max-width: 640px) {
-      .title-short { display: inline; }
-      .title-full { display: none; }
-      .metric-title {
-        font-size: 0.62rem;
-        letter-spacing: 0;
-      }
-    }
-    .metric-pill-sub {
-      font-size: 0.65rem;
-      color: var(--text-muted);
-      white-space: nowrap;
       font-weight: 700;
-      background: rgba(0, 0, 0, 0.05);
-      padding: 1px 4px;
-      border-radius: 6px;
-    }
-    [data-theme="sonoma"] .metric-pill-sub,
-    [data-theme="gemini"] .metric-pill-sub {
-      background: rgba(255, 255, 255, 0.08);
-      color: var(--text-secondary);
-    }
-    @media (max-width: 480px) {
-      .metric-pill-sub {
-        display: none;
-      }
-    }
-    .metric-numbers {
-      display: flex;
-      align-items: baseline;
-      gap: 2px;
-    }
-    .metric-big {
-      font-size: 1.3rem;
-      font-weight: 900;
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.04em;
+      margin-top: 2px;
     }
     @media (max-width: 640px) {
-      .metric-big {
-        font-size: 1.15rem;
-      }
-    }
-    .metric-vt .metric-big { color: #0284c7; }
-    .metric-ca .metric-big { color: #ec4899; }
-    .metric-work .metric-big { color: #10b981; }
-
-    .metric-sub {
-      font-size: 0.68rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      font-variant-numeric: tabular-nums;
-    }
-    @media (max-width: 640px) {
-      .metric-sub {
-        font-size: 0.6rem;
+      .capsule-subtext {
+        font-size: 0.65rem;
       }
     }
 
@@ -1190,29 +1243,51 @@
     <div class="auth-card" id="authCard">
       <div class="auth-avatar">🚆</div>
       <h2 class="auth-title">Roulement SNCF 2027</h2>
-      <p class="auth-subtitle">Espace Privé • Riadh Bizid (Lannemezan)</p>
+      <p class="auth-subtitle">Espace Privé • Riadh</p>
+
+      <!-- Section Face ID / Touch ID (si activé sur l'appareil) -->
+      <div id="authBioSection" style="display:none;">
+        <button type="button" class="auth-btn-bio" id="btnAuthBio" onclick="unlockWithBiometrics()">
+          <span style="font-size:1.35rem;">🪪</span>
+          <span>Déverrouiller avec Face ID</span>
+        </button>
+      </div>
+
+      <!-- Bouton Connexion Google (via Puter) -->
+      <button type="button" class="auth-btn-google" id="btnAuthGoogle" onclick="loginWithGooglePuter()">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+        </svg>
+        <span>Se connecter avec Google</span>
+      </button>
+
+      <div class="auth-divider">
+        <span>ou code secret</span>
+      </div>
 
       <form onsubmit="handleAuthSubmit(event)">
         <div class="auth-input-wrapper">
-          <input type="password" id="authPinInput" class="auth-input" placeholder="••••" maxlength="30" autofocus autocomplete="current-password">
+          <input type="password" id="authPinInput" class="auth-input" placeholder="••••" maxlength="30" autocomplete="current-password">
           <button type="button" class="auth-toggle-pwd" onclick="togglePinVisibility()" title="Afficher/Masquer">👁️</button>
         </div>
-        <div id="authErrorMsg" style="color:#ef4444; font-size:0.82rem; font-weight:700; min-height:20px; margin-bottom:8px;"></div>
+        <div id="authErrorMsg" style="color:#ef4444; font-size:0.82rem; font-weight:700; min-height:18px; margin-bottom:8px;"></div>
 
-        <label style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:18px; font-size:0.85rem; color:var(--text-muted); cursor:pointer;">
-          <input type="checkbox" id="authRememberCheckbox" checked style="width:18px; height:18px; accent-color:var(--accent-color);">
-          <span>Se souvenir de moi sur cet appareil</span>
+        <label style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:14px; font-size:0.84rem; color:var(--text-muted); cursor:pointer;">
+          <input type="checkbox" id="authRememberCheckbox" checked style="width:16px; height:16px; accent-color:var(--accent-color);">
+          <span>Rester connecté sur cet appareil</span>
         </label>
 
         <button type="submit" class="auth-btn-unlock">
-          🔓 Déverrouiller l'agenda
+          🔓 Valider le code secret
         </button>
       </form>
 
-      <div style="margin-top:16px;"></div>
-      <div style="margin-top:8px;">
+      <div style="margin-top:12px;">
         <button type="button" onclick="promptResetPin()" style="background:none; border:none; color:var(--accent-color); font-size:0.78rem; font-weight:700; text-decoration:underline; cursor:pointer;">
-          🔑 Personnaliser ou changer le mot de passe
+          🔑 Personnaliser le code secret de secours
         </button>
       </div>
     </div>
@@ -1249,47 +1324,33 @@
   <main class="main-app-container">
     <div class="glass-widget-card">
 
-      <!-- BARRE DE MÉTRIQUES UNIFIÉE & COMPACTE (STYLE LINEAR / AMIE MODERNE) -->
-      <section class="metrics-bar">
-        <div class="metric-card metric-vt" title="Vacations VT (Temps Partiel)">
-          <div class="metric-icon-box">⏱️</div>
-          <div class="metric-content">
-            <div class="metric-meta">
-              <span class="metric-title"><span class="title-full">Vacations VT</span><span class="title-short">Vacations</span></span>
-              <span class="metric-pill-sub"><span id="capVTPending">0</span>⏳ <span id="capVTAccepted">0</span>✓</span>
+      <!-- CAPSULES DE QUOTAS (STYLE AMIE / LAYERS) -->
+      <section class="quotas-capsules-row">
+        <!-- Capsule VT -->
+        <div class="quota-capsule capsule-vt">
+          <div>
+            <div class="capsule-title">⏱️ Vacations VT</div>
+            <div class="capsule-details">
+              Posés : <strong id="capVTPending">0</strong> | Validés : <strong id="capVTAccepted">0</strong>
             </div>
-            <div class="metric-numbers">
-              <span class="metric-big" id="capVTRemaining">44</span>
-              <span class="metric-sub">/<span id="capVTTotal">44</span>j</span>
-            </div>
+          </div>
+          <div>
+            <div class="capsule-big-number" id="capVTRemaining">44</div>
+            <div class="capsule-subtext">Restants / <span id="capVTTotal">44</span>j</div>
           </div>
         </div>
 
-        <div class="metric-card metric-ca" title="Congés Annuels">
-          <div class="metric-icon-box">🏖️</div>
-          <div class="metric-content">
-            <div class="metric-meta">
-              <span class="metric-title"><span class="title-full">Congés CA</span><span class="title-short">Congés</span></span>
-              <span class="metric-pill-sub"><span id="capCAPending">0</span>⏳ <span id="capCAAccepted">0</span>✓</span>
-            </div>
-            <div class="metric-numbers">
-              <span class="metric-big" id="capCARemaining">23</span>
-              <span class="metric-sub">/<span id="capCATotal">23</span>j</span>
+        <!-- Capsule Congés CA -->
+        <div class="quota-capsule capsule-ca">
+          <div>
+            <div class="capsule-title">🏖️ Congés Annuels (CA)</div>
+            <div class="capsule-details">
+              Posés : <strong id="capCAPending">0</strong> | Validés : <strong id="capCAAccepted">0</strong>
             </div>
           </div>
-        </div>
-
-        <div class="metric-card metric-work" title="Postes réellement travaillés">
-          <div class="metric-icon-box">🚆</div>
-          <div class="metric-content">
-            <div class="metric-meta">
-              <span class="metric-title"><span class="title-full">Postes Réels</span><span class="title-short">Postes</span></span>
-              <span class="metric-pill-sub">Actif</span>
-            </div>
-            <div class="metric-numbers">
-              <span class="metric-big" id="tileWorkVal">232</span>
-              <span class="metric-sub">/232j</span>
-            </div>
+          <div>
+            <div class="capsule-big-number" id="capCARemaining">23</div>
+            <div class="capsule-subtext">Restants / <span id="capCATotal">23</span>j</div>
           </div>
         </div>
       </section>
@@ -1338,6 +1399,22 @@
         </div>
         <div style="display: flex; justify-content: center; padding: 16px; background: white; border-radius: var(--radius-lg); width: fit-content; margin: 0 auto;">
           <div id="qrcodeArea"></div>
+        </div>
+      </div>
+
+      <!-- TUILES GIVRÉES AU BAS DU WIDGET -->
+      <div class="widget-bottom-tiles">
+        <div class="frosted-tile">
+          <div class="tile-label">Vacations VT</div>
+          <div class="tile-val" id="tileVTVal">44 j</div>
+        </div>
+        <div class="frosted-tile">
+          <div class="tile-label">Congés CA</div>
+          <div class="tile-val" id="tileCAVal">23 j</div>
+        </div>
+        <div class="frosted-tile">
+          <div class="tile-label">Postes Réels</div>
+          <div class="tile-val" id="tileWorkVal">232 j</div>
         </div>
       </div>
 
@@ -1409,31 +1486,10 @@
         </div>
       </div>
 
-      <div id="modalDeleteSection" style="display:none; margin-bottom: 12px;">
-        <button class="btn btn-danger" style="width:100%; min-height:46px;" onclick="cancelAbsence()">
+      <div id="modalDeleteSection" style="display:none;">
+        <button class="btn btn-danger" style="width:100%; min-height:48px;" onclick="cancelAbsence()">
           🗑️ Supprimer l'absence & rétablir le poste
         </button>
-      </div>
-
-      <!-- SECTION PLAGE MULTI-JOURS -->
-      <div id="modalRangeSection" style="margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(128, 128, 128, 0.2);">
-        <details style="font-size: 0.82rem; cursor: pointer;">
-          <summary style="font-weight: 700; color: var(--text-muted); outline: none; list-style: none; display: flex; align-items: center; justify-content: space-between;">
-            <span>📅 Poser sur une période (plusieurs jours)...</span>
-            <span style="font-size: 0.72rem; opacity: 0.6;">▼</span>
-          </summary>
-          <div style="margin-top: 10px; display: flex; flex-direction: column; gap: 8px;">
-            <div style="display: flex; gap: 8px; align-items: center;">
-              <span style="font-size: 0.78rem; color: var(--text-muted); min-width: 62px;">Jusqu'au :</span>
-              <input type="date" id="inputRangeEndDate" min="2027-01-01" max="2027-12-31" style="flex:1; min-height:38px; padding:6px 10px; border-radius:var(--radius-sm); border:var(--card-elevated-border); background:var(--card-elevated-bg); color:var(--text-main); font-weight:700;">
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
-              <button class="btn btn-glass" style="min-height:38px; font-size:0.78rem;" onclick="applyRangeAbsence('VT')">⏱️ Poser série VT</button>
-              <button class="btn btn-glass" style="min-height:38px; font-size:0.78rem;" onclick="applyRangeAbsence('CA')">🏖️ Poser série CA</button>
-            </div>
-            <span style="font-size: 0.7rem; color: var(--text-muted); font-style: italic;">Les repos (RP) dans la période sont automatiquement protégés et ignorés.</span>
-          </div>
-        </details>
       </div>
     </div>
   </div>
@@ -1444,15 +1500,44 @@
   <div class="modal-backdrop" id="settingsModalBackdrop" onclick="handleBackdropClick(event, 'settingsModalBackdrop')">
     <div class="modal-surface">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:16px;">
-        <h3 style="font-size:1.15rem; font-weight:800;">⚙️ Quotas & Mot de passe</h3>
+        <h3 style="font-size:1.15rem; font-weight:800;">⚙️ Sécurité & Paramètres</h3>
         <button class="btn btn-glass" style="min-height:36px; padding:6px 12px;" onclick="closeSettingsModal()">✕</button>
       </div>
 
-      <div style="margin-bottom:16px;">
-        <label style="font-size:0.84rem; font-weight:700; display:block; margin-bottom:6px;">🔒 Nouveau code d'accès :</label>
+      <!-- CARTE COMPTE GOOGLE / PUTER -->
+      <div style="background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-md); padding:14px; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <strong style="font-size:0.86rem; color:var(--text-main);">☁️ Compte Google & Sync</strong>
+          <span id="settingsPuterBadge" style="font-size:0.72rem; font-weight:800; padding:3px 8px; border-radius:12px; background:rgba(148,163,184,0.15); color:var(--text-muted);">Non connecté</span>
+        </div>
+        <p id="settingsPuterUser" style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">Liez votre compte Google pour sauvegarder vos congés dans votre coffre-fort privé.</p>
         <div style="display:flex; gap:8px;">
-          <input type="password" id="inputNewPin" placeholder="Code secret" style="flex:1; min-height:46px; padding:10px; background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-sm); color:var(--text-main);">
-          <button class="btn btn-primary" onclick="saveNewPin()">Changer</button>
+          <button type="button" id="btnSettingsGoogleConnect" class="btn btn-primary" style="flex:1; min-height:40px; font-size:0.82rem; padding:6px 12px;" onclick="loginWithGooglePuter()">
+            Se connecter avec Google
+          </button>
+          <button type="button" id="btnSettingsGoogleDisconnect" class="btn btn-glass" style="display:none; flex:1; min-height:40px; font-size:0.82rem; padding:6px 12px;" onclick="logoutPuter()">
+            Déconnecter
+          </button>
+        </div>
+      </div>
+
+      <!-- CARTE BIOMÉTRIE FACE ID / TOUCH ID -->
+      <div style="background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-md); padding:14px; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+          <strong style="font-size:0.86rem; color:var(--text-main);">🪪 Face ID / Touch ID</strong>
+          <span id="settingsBioBadge" style="font-size:0.72rem; font-weight:800; padding:3px 8px; border-radius:12px; background:rgba(148,163,184,0.15); color:var(--text-muted);">Désactivé</span>
+        </div>
+        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">Déverrouillez instantanément l'agenda sans code sur cet appareil.</p>
+        <button type="button" id="btnSettingsBioToggle" class="btn btn-glass" style="width:100%; min-height:40px; font-size:0.82rem;" onclick="toggleBiometricsRegistration()">
+          🪪 Activer Face ID sur cet appareil
+        </button>
+      </div>
+
+      <div style="margin-bottom:16px;">
+        <label style="font-size:0.84rem; font-weight:700; display:block; margin-bottom:6px;">🔒 Code secret de secours (PIN) :</label>
+        <div style="display:flex; gap:8px;">
+          <input type="password" id="inputNewPin" placeholder="Nouveau code" style="flex:1; min-height:44px; padding:10px; background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-sm); color:var(--text-main);">
+          <button class="btn btn-primary" style="min-height:44px;" onclick="saveNewPin()">Changer</button>
         </div>
       </div>
 
@@ -1524,8 +1609,12 @@
       setAppTheme(saved, true);
     }
 
-    // --- SÉCURITÉ & PIN ---
+    // --- SÉCURITÉ, GOOGLE PUTER & WEBAUTHN BIOMÉTRIE ---
     const DEFAULT_PIN_HASH = '5313e5bf17148de844ff74be3663d47c6e361ca469b30a36337701233c89a15e';
+    const AUTH_CONFIG = {
+      RP_NAME: 'Roulement SNCF 2027',
+      BIOMETRIC_STORAGE_KEY: 'sncf_2027_biometric_cred_id'
+    };
 
     function togglePinVisibility() {
       const p = document.getElementById('authPinInput');
@@ -1534,30 +1623,239 @@
 
     async function sha256(str) {
       try {
-        if (window.crypto && window.crypto.subtle) {
-          const buf = new TextEncoder().encode(str);
-          const hashBuf = await crypto.subtle.digest('SHA-256', buf);
-          return Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
-        }
-      } catch(e) {}
-      // Fallback simple hash synchrone pour contextes locaux (ex: file://)
-      let h = 0x811c9dc5;
-      for (let i = 0; i < str.length; i++) {
-        h ^= str.charCodeAt(i);
-        h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
-      }
-      return 'fb_' + (h >>> 0).toString(16);
+        if (!window.crypto || !window.crypto.subtle) return "";
+        const buf = new TextEncoder().encode(str);
+        const hashBuf = await crypto.subtle.digest('SHA-256', buf);
+        return Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
+      } catch(e) { return ""; }
     }
 
-    function checkAuthOnLoad() {
+    function updateBioUI() {
+      const hasBio = !!localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
+      const authBioSec = document.getElementById('authBioSection');
+      if (authBioSec) authBioSec.style.display = hasBio ? 'block' : 'none';
+
+      const badge = document.getElementById('settingsBioBadge');
+      const btn = document.getElementById('btnSettingsBioToggle');
+      if (badge && btn) {
+        if (hasBio) {
+          badge.innerText = 'Activé ✓';
+          badge.style.background = 'rgba(16, 185, 129, 0.15)';
+          badge.style.color = '#10b981';
+          btn.innerText = '🗑️ Désactiver Face ID sur cet appareil';
+          btn.className = 'btn btn-danger';
+        } else {
+          badge.innerText = 'Désactivé';
+          badge.style.background = 'rgba(148, 163, 184, 0.15)';
+          badge.style.color = 'var(--text-muted)';
+          btn.innerText = '🪪 Activer Face ID sur cet appareil';
+          btn.className = 'btn btn-glass';
+        }
+      }
+    }
+
+    async function toggleBiometricsRegistration() {
+      const hasBio = !!localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
+      if (hasBio) {
+        if (confirm("Désactiver Face ID / Touch ID sur cet appareil ?")) {
+          localStorage.removeItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
+          updateBioUI();
+          showToast("Face ID désactivé sur cet appareil.");
+        }
+        return;
+      }
+      await registerBiometrics();
+    }
+
+    async function registerBiometrics() {
+      if (!window.PublicKeyCredential) {
+        alert("La biométrie WebAuthn n'est pas supportée par ce navigateur.");
+        return false;
+      }
+      try {
+        if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+          alert("L'activation de Face ID requiert une connexion sécurisée (HTTPS ou localhost).");
+          return false;
+        }
+        const challenge = new Uint8Array(32);
+        window.crypto.getRandomValues(challenge);
+        const userId = new Uint8Array(16);
+        window.crypto.getRandomValues(userId);
+
+        const rpHost = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? undefined : window.location.hostname;
+
+        const createOptions = {
+          publicKey: {
+            challenge: challenge,
+            rp: { name: AUTH_CONFIG.RP_NAME, id: rpHost },
+            user: {
+              id: userId,
+              name: 'riadh',
+              displayName: 'Riadh'
+            },
+            pubKeyCredParams: [
+              { type: "public-key", alg: -7 },   // ES256 (iOS FaceID/TouchID & Android)
+              { type: "public-key", alg: -257 }  // RS256 (Windows Hello)
+            ],
+            authenticatorSelection: {
+              authenticatorAttachment: "platform",
+              userVerification: "required",
+              residentKey: "preferred"
+            },
+            timeout: 60000
+          }
+        };
+
+        const credential = await navigator.credentials.create(createOptions);
+        if (credential && credential.rawId) {
+          const credIdBase64 = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
+          localStorage.setItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY, credIdBase64);
+          updateBioUI();
+          showToast("Face ID activé avec succès !", "🪪");
+          return true;
+        }
+      } catch(err) {
+        console.error("Erreur WebAuthn register:", err);
+        if (err.name !== 'NotAllowedError') {
+          alert("Impossible d'activer la biométrie : " + (err.message || err.name));
+        }
+        return false;
+      }
+    }
+
+    async function unlockWithBiometrics() {
+      const credIdBase64 = localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
+      if (!credIdBase64 || !window.PublicKeyCredential) return false;
+      try {
+        const challenge = new Uint8Array(32);
+        window.crypto.getRandomValues(challenge);
+        const rawId = Uint8Array.from(atob(credIdBase64), c => c.charCodeAt(0));
+        const rpHost = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') ? undefined : window.location.hostname;
+
+        const getOptions = {
+          publicKey: {
+            challenge: challenge,
+            rpId: rpHost,
+            allowCredentials: [{
+              type: "public-key",
+              id: rawId,
+              transports: ["internal"]
+            }],
+            userVerification: "required",
+            timeout: 60000
+          }
+        };
+
+        const assertion = await navigator.credentials.get(getOptions);
+        if (assertion) {
+          sessionStorage.setItem('sncf_session_unlocked', 'true');
+          const overlay = document.getElementById('authOverlay');
+          overlay.classList.add('hidden');
+          overlay.style.display = 'none';
+          showToast("Bienvenue Riadh !", "🪪");
+          return true;
+        }
+      } catch(err) {
+        console.warn("Échec ou annulation biométrique:", err);
+        const errEl = document.getElementById('authErrorMsg');
+        if (errEl && err.name !== 'NotAllowedError') {
+          errEl.innerText = "Biométrie non reconnue.";
+        }
+        return false;
+      }
+    }
+
+    async function loginWithGooglePuter() {
+      const errEl = document.getElementById('authErrorMsg');
+      if (errEl) errEl.innerText = "";
+      if (typeof puter === 'undefined') {
+        if (errEl) errEl.innerText = "Module Cloud Puter indisponible.";
+        return;
+      }
+      try {
+        await puter.auth.signIn();
+        if (puter.auth.isSignedIn()) {
+          isPuterConnected = true;
+          sessionStorage.setItem('sncf_session_unlocked', 'true');
+          const remember = document.getElementById('authRememberCheckbox')?.checked;
+          if (remember) localStorage.setItem('sncf_remember_unlocked', 'true');
+
+          const user = await puter.auth.getUser();
+          const overlay = document.getElementById('authOverlay');
+          overlay.classList.add('hidden');
+          overlay.style.display = 'none';
+          showToast(`Connecté avec Google (${user.username || 'Riadh'}) !`, "☁️");
+
+          updateSettingsAuthUI();
+          syncWithPuter(false);
+        }
+      } catch(err) {
+        console.error("Échec connexion Puter:", err);
+        if (errEl) errEl.innerText = "Connexion annulée ou fermée.";
+      }
+    }
+
+    async function logoutPuter() {
+      if (typeof puter !== 'undefined' && puter.auth) {
+        await puter.auth.signOut();
+      }
+      isPuterConnected = false;
+      localStorage.removeItem('sncf_remember_unlocked');
+      sessionStorage.removeItem('sncf_session_unlocked');
+      closeSettingsModal();
+      lockApp();
+      updateSettingsAuthUI();
+      showToast("Déconnecté de Google / Puter");
+    }
+
+    function updateSettingsAuthUI() {
+      const pBadge = document.getElementById('settingsPuterBadge');
+      const pUser = document.getElementById('settingsPuterUser');
+      const btnConn = document.getElementById('btnSettingsGoogleConnect');
+      const btnDisc = document.getElementById('btnSettingsGoogleDisconnect');
+
+      if (!pBadge) return;
+
+      if (isPuterConnected && typeof puter !== 'undefined' && puter.auth && puter.auth.isSignedIn()) {
+        puter.auth.getUser().then(u => {
+          pBadge.innerText = "Connecté ✓";
+          pBadge.style.background = "rgba(16, 185, 129, 0.15)";
+          pBadge.style.color = "#10b981";
+          if (pUser) pUser.innerText = `Connecté en tant que ${u.username || 'Riadh'}. Synchronisation active.`;
+          if (btnConn) btnConn.style.display = "none";
+          if (btnDisc) btnDisc.style.display = "block";
+        }).catch(() => {});
+      } else {
+        pBadge.innerText = "Non connecté";
+        pBadge.style.background = "rgba(148, 163, 184, 0.15)";
+        pBadge.style.color = "var(--text-muted)";
+        if (pUser) pUser.innerText = "Liez votre compte Google pour sauvegarder vos congés dans votre coffre-fort privé.";
+        if (btnConn) btnConn.style.display = "block";
+        if (btnDisc) btnDisc.style.display = "none";
+      }
+    }
+
+    async function checkAuthOnLoad() {
       const overlay = document.getElementById('authOverlay');
-      if (sessionStorage.getItem('sncf_session_unlocked') === 'true' || localStorage.getItem('sncf_remember_unlocked') === 'true') {
+      const isUnlocked = sessionStorage.getItem('sncf_session_unlocked') === 'true' || localStorage.getItem('sncf_remember_unlocked') === 'true';
+
+      updateBioUI();
+      updateSettingsAuthUI();
+
+      if (isUnlocked) {
         overlay.classList.add('hidden');
         overlay.style.display = 'none';
-      } else {
-        overlay.classList.remove('hidden');
-        overlay.style.display = 'flex';
-        setTimeout(() => { const i = document.getElementById('authPinInput'); if (i) i.focus(); }, 150);
+        return;
+      }
+
+      overlay.classList.remove('hidden');
+      overlay.style.display = 'flex';
+
+      const hasBio = localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
+      if (hasBio && window.PublicKeyCredential) {
+        setTimeout(() => {
+          unlockWithBiometrics();
+        }, 350);
       }
     }
 
@@ -1606,7 +1904,7 @@
     }
 
     async function promptResetPin() {
-      const n = prompt("Entrez votre nouveau code secret :");
+      const n = prompt("Entrez votre nouveau code secret de secours :");
       if (n && n.trim().length >= 2) {
         const trimmed = n.trim();
         const hash = await sha256(trimmed);
@@ -1616,7 +1914,7 @@
         }
         const p = document.getElementById('authPinInput');
         if (p) p.value = trimmed;
-        alert("Nouveau code enregistré !\nCliquez sur Déverrouiller !");
+        alert("Nouveau code enregistré !\nCliquez sur Valider le code secret !");
       }
     }
 
@@ -1684,17 +1982,19 @@
       const caRest = Math.max(0, quotaConge - caAcc - caPend);
       const workReal = Math.max(0, TOTAL_BASE_WORK_DAYS - (vtAcc + caAcc));
 
-      // Mise à jour sécurisée des métriques
-      const setIfExists = (id, val) => { const el = document.getElementById(id); if (el) el.innerText = val; };
-      setIfExists('capVTPending', vtPend);
-      setIfExists('capVTAccepted', vtAcc);
-      setIfExists('capVTRemaining', vtRest);
-      setIfExists('capCAPending', caPend);
-      setIfExists('capCAAccepted', caAcc);
-      setIfExists('capCARemaining', caRest);
-      setIfExists('tileVTVal', vtRest + ' j');
-      setIfExists('tileCAVal', caRest + ' j');
-      setIfExists('tileWorkVal', workReal);
+      // Capsules
+      document.getElementById('capVTPending').innerText = vtPend;
+      document.getElementById('capVTAccepted').innerText = vtAcc;
+      document.getElementById('capVTRemaining').innerText = vtRest;
+
+      document.getElementById('capCAPending').innerText = caPend;
+      document.getElementById('capCAAccepted').innerText = caAcc;
+      document.getElementById('capCARemaining').innerText = caRest;
+
+      // Bottom Tiles
+      document.getElementById('tileVTVal').innerText = vtRest + ' j';
+      document.getElementById('tileCAVal').innerText = caRest + ' j';
+      document.getElementById('tileWorkVal').innerText = workReal + ' j';
     }
 
     // --- NAVIGATION MOIS & GRILLE ---
@@ -1846,7 +2146,6 @@
       document.getElementById('modalDaySubtitle').innerText = `Poste : ${day.baseCode} ${day.hoursLabel ? '(' + day.hoursLabel + ')' : '(Repos)'}`;
 
       const isRestDay = !day.isWork;
-      const abs = userAbsences[dateStr];
       const btnVT = document.getElementById('btnModalVT');
       const btnCA = document.getElementById('btnModalCA');
       if (btnVT && btnCA) {
@@ -1858,24 +2157,9 @@
         btnCA.style.cursor = isRestDay ? 'not-allowed' : 'pointer';
         btnVT.title = isRestDay ? 'Impossible de poser un congé sur un jour de Repos' : '';
         btnCA.title = isRestDay ? 'Impossible de poser un congé sur un jour de Repos' : '';
-        btnVT.className = 'btn ' + (abs && abs.type === 'VT' ? 'btn-primary' : 'btn-glass');
-        btnCA.className = 'btn ' + (abs && abs.type === 'CA' ? 'btn-primary' : 'btn-glass');
       }
 
-      ['Pending', 'Accepted', 'Rejected'].forEach(st => {
-        const btn = document.getElementById('btnSt' + st);
-        if (btn) {
-          btn.className = 'btn ' + (abs && abs.status === st.toLowerCase() ? 'btn-primary' : 'btn-glass');
-        }
-      });
-
-      // Synchronise la date par défaut pour la pose par période
-      const rangeInput = document.getElementById('inputRangeEndDate');
-      if (rangeInput) {
-        rangeInput.min = dateStr;
-        rangeInput.value = dateStr;
-      }
-
+      const abs = userAbsences[dateStr];
       const stSec = document.getElementById('modalStatusSection');
       const delSec = document.getElementById('modalDeleteSection');
 
@@ -1887,29 +2171,6 @@
         delSec.style.display = 'none';
       }
       document.getElementById('dayModalBackdrop').classList.add('active');
-    }
-
-    function applyRangeAbsence(type) {
-      if (!activeDayDate) return;
-      const endVal = document.getElementById('inputRangeEndDate')?.value;
-      if (!endVal || endVal < activeDayDate) {
-        showToast("Sélectionnez une date de fin valide.", "⚠️");
-        return;
-      }
-      let count = 0;
-      RAW_DAYS_DATA.forEach(d => {
-        if (d.date >= activeDayDate && d.date <= endVal) {
-          if (d.isWork) {
-            userAbsences[d.date] = { type: type, status: 'pending' };
-            count++;
-          }
-        }
-      });
-      saveData();
-      updateAllStats();
-      openDayModal(activeDayDate);
-      renderCurrentView();
-      showToast(`${count} ${type} posés (repos ignorés) !`, "✨");
     }
 
     function closeDayModal() {
@@ -1972,6 +2233,7 @@
         try {
           if (puter.auth && puter.auth.isSignedIn()) {
             isPuterConnected = true;
+            updateSettingsAuthUI();
             syncWithPuter(true);
           }
         } catch(e) {}
@@ -2040,10 +2302,8 @@
           if (parsed.ca !== undefined) quotaConge = parsed.ca;
           if (parsed.a) {
             userAbsences = {};
-            Object.keys(parsed.a).forEach(k => {
-              const code = parsed.a[k];
-              // Supporte format compact MMDD ("0514") et ISO classique ("2027-05-14")
-              const dt = k.length === 4 ? `2027-${k.slice(0, 2)}-${k.slice(2, 4)}` : k;
+            Object.keys(parsed.a).forEach(dt => {
+              const code = parsed.a[dt];
               const type = code[0] === 'C' ? 'CA' : 'VT';
               const status = code[1] === '2' ? 'accepted' : (code[1] === '3' ? 'rejected' : 'pending');
               userAbsences[dt] = { type, status };
@@ -2055,15 +2315,9 @@
           loadSavedData();
           updateAllStats();
           renderCurrentView();
-          if (window.history && window.history.replaceState) {
-            window.history.replaceState(null, null, ' ');
-          } else {
-            window.location.hash = '';
-          }
+          window.location.hash = '';
           showToast("Données importées depuis le QR Code !");
-        } catch(e) {
-          showToast("QR Code invalide", "⚠️");
-        }
+        } catch(e) {}
       }
     }
 
@@ -2076,21 +2330,11 @@
         const item = userAbsences[dt];
         const t = item.type === 'CA' ? 'C' : 'V';
         const s = item.status === 'accepted' ? '2' : (item.status === 'rejected' ? '3' : '1');
-        // Clé compacte MMDD (ex: 2027-05-14 -> "0514")
-        const shortKey = dt.slice(5, 7) + dt.slice(8, 10);
-        compactAbs[shortKey] = t + s;
+        compactAbs[dt] = t + s;
       });
       const payload = { vt: quotaVT, ca: quotaConge, a: compactAbs };
-      const baseUrl = window.location.href.split('#')[0];
-      const url = baseUrl + '#sync=' + encodeURIComponent(JSON.stringify(payload));
-      new QRCode(el, {
-        text: url,
-        width: 200,
-        height: 200,
-        colorDark: "#0f172a",
-        colorLight: "#ffffff",
-        correctLevel: (typeof QRCode.CorrectLevel !== 'undefined' && QRCode.CorrectLevel.L !== undefined) ? QRCode.CorrectLevel.L : 1
-      });
+      const url = window.location.origin + window.location.pathname + '#sync=' + encodeURIComponent(JSON.stringify(payload));
+      new QRCode(el, { text: url, width: 200, height: 200, colorDark: "#0f172a", colorLight: "#ffffff" });
     }
 
     function addOneDayStr(dateStr) {
@@ -2100,34 +2344,7 @@
     }
 
     function exportUpdatedICS() {
-      let ics = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//SNCF//Roulement 2027 Layers//FR",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        "X-WR-CALNAME:Roulement SNCF 2027",
-        "X-WR-TIMEZONE:Europe/Paris",
-        "BEGIN:VTIMEZONE",
-        "TZID:Europe/Paris",
-        "BEGIN:DAYLIGHT",
-        "TZOFFSETFROM:+0100",
-        "TZOFFSETTO:+0200",
-        "TZNAME:CEST",
-        "DTSTART:19700329T020000",
-        "RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU",
-        "END:DAYLIGHT",
-        "BEGIN:STANDARD",
-        "TZOFFSETFROM:+0200",
-        "TZOFFSETTO:+0100",
-        "TZNAME:CET",
-        "DTSTART:19701025T030000",
-        "RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU",
-        "END:STANDARD",
-        "END:VTIMEZONE",
-        ""
-      ].join("\r\n");
-
+      let ics = "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//SNCF//Roulement 2027 Layers//FR\r\nCALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nX-WR-CALNAME:Roulement SNCF 2027\r\nX-WR-TIMEZONE:Europe/Paris\r\n";
       const nowUtc = new Date().toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
       RAW_DAYS_DATA.forEach(d => {
         const abs = userAbsences[d.date];
