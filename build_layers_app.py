@@ -1125,6 +1125,165 @@ HTML_CONTENT = """<!DOCTYPE html>
     .btn-glass { background: var(--card-elevated-bg); border: var(--card-elevated-border); color: var(--text-main); }
     .btn-danger { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
 
+    /* ==========================================================================
+       SECTION SÉLECTION MULTI-JOURS (POSER SUR UNE PÉRIODE)
+       ========================================================================== */
+    .range-absence-card {
+      background: var(--card-elevated-bg);
+      border: var(--card-elevated-border);
+      border-radius: var(--radius-lg);
+      padding: 14px;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .range-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .range-title {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .range-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(148, 163, 184, 0.15);
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+    .range-badge.has-days {
+      background: rgba(14, 165, 233, 0.18);
+      color: #0284c7;
+      border: 1px solid rgba(14, 165, 233, 0.3);
+    }
+    [data-theme="gemini"] .range-badge.has-days {
+      color: #38bdf8;
+    }
+    .range-grouping-chips {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+    }
+    .chip-btn {
+      min-height: 38px;
+      border-radius: var(--radius-sm);
+      border: var(--card-elevated-border);
+      background: var(--card-bg);
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+    .chip-btn:hover {
+      background: var(--card-hover-bg);
+      color: var(--text-main);
+    }
+    .chip-btn:active {
+      transform: scale(0.96);
+    }
+    .chip-btn.active {
+      background: var(--accent-color);
+      color: white;
+      border-color: var(--accent-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    .range-input-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: var(--card-bg);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: var(--card-elevated-border);
+    }
+    .range-from-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+    }
+    .range-arrow {
+      color: var(--text-muted);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+    .range-date-input {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 0.88rem;
+      font-weight: 700;
+      padding: 4px 6px;
+      outline: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .range-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .btn-range {
+      min-height: 52px;
+      border-radius: var(--radius-md);
+      border: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      touch-action: manipulation;
+      padding: 6px 8px;
+    }
+    .btn-range:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none !important;
+      filter: grayscale(0.5);
+    }
+    .btn-range:not(:disabled):hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+    .btn-range:not(:disabled):active {
+      transform: scale(0.97);
+    }
+    .btn-vt {
+      background: linear-gradient(135deg, #0284c7, #0369a1);
+      color: white;
+    }
+    .btn-ca {
+      background: linear-gradient(135deg, #ec4899, #be185d);
+      color: white;
+    }
+    .btn-main-text {
+      font-size: 0.84rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+    .btn-sub-text {
+      font-size: 0.7rem;
+      opacity: 0.92;
+      margin-top: 2px;
+      font-weight: 600;
+    }
+
+
     /* Toast */
     .toast-pill {
       position: fixed;
@@ -1394,6 +1553,47 @@ HTML_CONTENT = """<!DOCTYPE html>
         <button class="btn btn-danger" style="width:100%; min-height:48px;" onclick="cancelAbsence()">
           🗑️ Supprimer l'absence & rétablir le poste
         </button>
+      </div>
+
+      <!-- SECTION MULTI-JOURS (POSER SUR UNE PÉRIODE) -->
+      <div class="range-absence-card" id="rangeAbsenceContainer">
+        <div class="range-header">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-size:1.1rem;">📅</span>
+            <span class="range-title">Poser sur plusieurs jours</span>
+          </div>
+          <span class="range-badge" id="rangeLiveCounter">Sélectionnez une fin</span>
+        </div>
+
+        <!-- Quick Chips : 1-Tap Mobile pour Pixel 10 & Desktop -->
+        <div class="range-grouping-chips">
+          <button type="button" class="chip-btn" id="chipPlus1" onclick="setRangeChipDays(1)">+1 j</button>
+          <button type="button" class="chip-btn" id="chipPlus2" onclick="setRangeChipDays(2)">+2 j</button>
+          <button type="button" class="chip-btn" id="chipPlus4" onclick="setRangeChipDays(4)">+4 j</button>
+          <button type="button" class="chip-btn" id="chipEndWeek" onclick="setRangeChipDays(null, 'end-of-week')">Fin sem.</button>
+        </div>
+
+        <!-- Sélecteur de date de début et fin -->
+        <div class="range-input-wrapper">
+          <span class="range-from-label" id="rangeStartDateLabel">Du --/--</span>
+          <span class="range-arrow">➔</span>
+          <input type="date" id="inputRangeEndDate" class="range-date-input" min="2027-01-01" max="2027-12-31" oninput="handleRangeDateInput()" />
+        </div>
+
+        <!-- Actions de validation avec compteur en direct -->
+        <div class="range-actions">
+          <button type="button" id="btnApplyRangeVT" class="btn-range btn-vt" onclick="applyRangeAbsence('VT')" disabled>
+            <span class="btn-main-text">⏱️ Poser série VT</span>
+            <span class="btn-sub-text" id="subTextVT">0 jour ouvré</span>
+          </button>
+          <button type="button" id="btnApplyRangeCA" class="btn-range btn-ca" onclick="applyRangeAbsence('CA')" disabled>
+            <span class="btn-main-text">🏖️ Poser série CA</span>
+            <span class="btn-sub-text" id="subTextCA">0 jour ouvré</span>
+          </button>
+        </div>
+        <div style="font-size:0.72rem; color:var(--text-muted); text-align:center; font-style:italic;">
+          🛡️ Les repos (RP) dans la période sont automatiquement protégés et non décomptés.
+        </div>
       </div>
     </div>
   </div>
@@ -2014,6 +2214,18 @@ HTML_CONTENT = """<!DOCTYPE html>
       const stSec = document.getElementById('modalStatusSection');
       const delSec = document.getElementById('modalDeleteSection');
 
+      if (btnVT && btnCA) {
+        btnVT.className = 'btn ' + (abs && abs.type === 'VT' ? 'btn-primary' : 'btn-glass');
+        btnCA.className = 'btn ' + (abs && abs.type === 'CA' ? 'btn-primary' : 'btn-glass');
+      }
+
+      ['Pending', 'Accepted', 'Rejected'].forEach(st => {
+        const btn = document.getElementById('btnSt' + st);
+        if (btn) {
+          btn.className = 'btn ' + (abs && abs.status === st.toLowerCase() ? 'btn-primary' : 'btn-glass');
+        }
+      });
+
       if (abs) {
         stSec.style.display = 'block';
         delSec.style.display = 'block';
@@ -2021,6 +2233,8 @@ HTML_CONTENT = """<!DOCTYPE html>
         stSec.style.display = 'none';
         delSec.style.display = 'none';
       }
+
+      initRangeAbsenceUI(dateStr);
       document.getElementById('dayModalBackdrop').classList.add('active');
     }
 
@@ -2066,6 +2280,149 @@ HTML_CONTENT = """<!DOCTYPE html>
       closeDayModal();
       renderCurrentView();
       showToast("Poste rétabli !");
+    }
+
+    // --- GESTION MULTI-JOURS (PÉRIODE CONSÉCUTIVE) ---
+    function toLocalISODate(d) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, "0");
+      const day = String(d.getDate()).padStart(2, "0");
+      return `${y}-${m}-${day}`;
+    }
+
+    function initRangeAbsenceUI(clickedDateStr) {
+      const inputEnd = document.getElementById("inputRangeEndDate");
+      const startLabel = document.getElementById("rangeStartDateLabel");
+      if (!inputEnd || !startLabel) return;
+
+      const [y, m, d] = clickedDateStr.split("-");
+      startLabel.textContent = `Du ${d}/${m}`;
+
+      inputEnd.min = clickedDateStr;
+      inputEnd.max = "2027-12-31";
+
+      // Par défaut : fin au même jour ou +1 jour
+      const [iy, im, id] = clickedDateStr.split("-").map(Number);
+      const defaultEndDate = new Date(iy, im - 1, id + 1, 12, 0, 0);
+      inputEnd.value = toLocalISODate(defaultEndDate);
+
+      // Réinitialiser les chips
+      document.querySelectorAll(".chip-btn").forEach(c => c.classList.remove("active"));
+      const chip1 = document.getElementById("chipPlus1");
+      if (chip1) chip1.classList.add("active");
+
+      evaluateRangeWorkDays();
+    }
+
+    function setRangeChipDays(days, mode) {
+      if (!activeDayDate) return;
+      document.querySelectorAll(".chip-btn").forEach(c => c.classList.remove("active"));
+
+      const [y, m, d] = activeDayDate.split("-").map(Number);
+      const targetDate = new Date(y, m - 1, d, 12, 0, 0);
+
+      if (mode === "end-of-week") {
+        const currentDay = targetDate.getDay(); // 0 = Dimanche, 1 = Lundi...
+        const daysToSunday = currentDay === 0 ? 0 : (7 - currentDay);
+        targetDate.setDate(targetDate.getDate() + daysToSunday);
+        const btn = document.getElementById("chipEndWeek");
+        if (btn) btn.classList.add("active");
+      } else {
+        targetDate.setDate(targetDate.getDate() + days);
+        const btn = document.getElementById("chipPlus" + days);
+        if (btn) btn.classList.add("active");
+      }
+
+      const inputEnd = document.getElementById("inputRangeEndDate");
+      if (inputEnd) {
+        inputEnd.value = toLocalISODate(targetDate);
+      }
+      evaluateRangeWorkDays();
+    }
+
+    function handleRangeDateInput() {
+      document.querySelectorAll(".chip-btn").forEach(c => c.classList.remove("active"));
+      evaluateRangeWorkDays();
+    }
+
+    function evaluateRangeWorkDays() {
+      const inputEnd = document.getElementById("inputRangeEndDate");
+      const badge = document.getElementById("rangeLiveCounter");
+      const btnVT = document.getElementById("btnApplyRangeVT");
+      const btnCA = document.getElementById("btnApplyRangeCA");
+      const subVT = document.getElementById("subTextVT");
+      const subCA = document.getElementById("subTextCA");
+
+      if (!inputEnd || !badge || !btnVT || !btnCA) return [];
+
+      const endDateStr = inputEnd.value;
+      if (!activeDayDate || !endDateStr || endDateStr < activeDayDate) {
+        badge.textContent = "Dates invalides";
+        badge.classList.remove("has-days");
+        btnVT.disabled = true;
+        btnCA.disabled = true;
+        if (subVT) subVT.textContent = "0 jour";
+        if (subCA) subCA.textContent = "0 jour";
+        return [];
+      }
+
+      let totalCalendarDays = 0;
+      let restDaysCount = 0;
+      const targetWorkDates = [];
+
+      RAW_DAYS_DATA.forEach(d => {
+        if (d.date >= activeDayDate && d.date <= endDateStr) {
+          totalCalendarDays++;
+          if (d.isWork) {
+            targetWorkDates.push(d.date);
+          } else {
+            restDaysCount++;
+          }
+        }
+      });
+
+      const workCount = targetWorkDates.length;
+
+      if (workCount === 0) {
+        badge.textContent = `0 jour ouvré (${restDaysCount} repos)`;
+        badge.classList.remove("has-days");
+        btnVT.disabled = true;
+        btnCA.disabled = true;
+      } else {
+        const reposInfo = restDaysCount > 0 ? ` (${restDaysCount} repos ignorés)` : "";
+        badge.textContent = `${totalCalendarDays}j au total${reposInfo}`;
+        badge.classList.add("has-days");
+        btnVT.disabled = false;
+        btnCA.disabled = false;
+      }
+
+      const labelCount = `${workCount} jour${workCount > 1 ? "s" : ""} décompté${workCount > 1 ? "s" : ""}`;
+      if (subVT) subVT.textContent = labelCount;
+      if (subCA) subCA.textContent = labelCount;
+
+      return targetWorkDates;
+    }
+
+    function applyRangeAbsence(type) {
+      const workingDates = evaluateRangeWorkDays();
+      if (!workingDates || workingDates.length === 0) {
+        showToast("Aucun jour de travail sur la période choisie.", "⚠️");
+        return;
+      }
+
+      if (navigator.vibrate) {
+        try { navigator.vibrate(40); } catch(e) {}
+      }
+
+      workingDates.forEach(dt => {
+        userAbsences[dt] = { type: type, status: "pending" };
+      });
+
+      saveData();
+      updateAllStats();
+      openDayModal(activeDayDate);
+      renderCurrentView();
+      showToast(`${workingDates.length} ${type} posés (repos protégés) !`, "✨");
     }
 
     function handleBackdropClick(e, id) {
