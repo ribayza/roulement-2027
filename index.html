@@ -229,14 +229,6 @@
       from { transform: scale(0.92); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
-    @keyframes authShake {
-      0%, 100% { transform: translateX(0); }
-      20%, 60% { transform: translateX(-8px); }
-      40%, 80% { transform: translateX(8px); }
-    }
-    .auth-shake {
-      animation: authShake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
-    }
     .auth-avatar {
       width: 68px;
       height: 68px;
@@ -260,61 +252,6 @@
       font-size: 0.85rem;
       color: var(--text-muted);
       margin-bottom: 24px;
-    }
-    .auth-input-wrapper {
-      position: relative;
-      width: 100%;
-      margin-bottom: 12px;
-    }
-    .auth-input {
-      width: 100%;
-      min-height: 52px;
-      padding: 12px 46px 12px 16px;
-      background: var(--card-elevated-bg);
-      border: var(--card-elevated-border);
-      border-radius: var(--radius-md);
-      font-size: 1.35rem;
-      text-align: center;
-      letter-spacing: 5px;
-      font-weight: 700;
-      color: var(--text-main);
-      outline: none;
-      transition: all 0.2s ease;
-    }
-    .auth-input:focus {
-      border-color: var(--accent-color);
-      box-shadow: var(--accent-glow);
-    }
-    .auth-toggle-pwd {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.25rem;
-      padding: 6px;
-    }
-    .auth-btn-unlock {
-      width: 100%;
-      min-height: 50px;
-      background: var(--accent-color);
-      color: white;
-      border: none;
-      border-radius: var(--radius-md);
-      font-size: 1rem;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: var(--accent-glow);
-      transition: transform 0.15s ease;
-    }
-    .auth-btn-unlock:active {
-      transform: scale(0.97);
     }
     .auth-btn-google {
       width: 100%;
@@ -372,43 +309,7 @@
     .auth-btn-bio:active {
       transform: scale(0.98);
     }
-    .auth-divider {
-      margin: 16px 0 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .auth-divider::before, .auth-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--card-elevated-border);
-    }
-    .auth-divider span {
-      font-size: 0.74rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-    }
-    .auth-fallback-toggle {
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-      padding: 6px 10px;
-      border-radius: var(--radius-sm);
-      transition: color 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .auth-fallback-toggle:hover {
-      color: var(--accent-color);
-    }
+
 
     /* ==========================================================================
        TOP BAR & SÉLECTEUR DE THÈMES (SONOMA / AMIE / GEMINI)
@@ -1245,11 +1146,11 @@
       <h2 class="auth-title">Roulement SNCF 2027</h2>
       <p class="auth-subtitle">Espace Privé • Riadh</p>
 
-      <!-- Section Face ID / Touch ID (si activé sur l'appareil) -->
-      <div id="authBioSection" style="display:none;">
+      <!-- Section Empreinte / Face Unlock (Pixel 10 / Android) si activé -->
+      <div id="authBioSection" style="display:none; margin-bottom:14px;">
         <button type="button" class="auth-btn-bio" id="btnAuthBio" onclick="unlockWithBiometrics()">
-          <span style="font-size:1.35rem;">🪪</span>
-          <span>Déverrouiller avec Face ID</span>
+          <span style="font-size:1.35rem;">👆</span>
+          <span>Déverrouiller avec l'empreinte (Pixel 10)</span>
         </button>
       </div>
 
@@ -1264,32 +1165,10 @@
         <span>Se connecter avec Google</span>
       </button>
 
-      <div class="auth-divider">
-        <span>ou code secret</span>
+      <div id="authStatusMsg" style="font-size:0.8rem; color:var(--text-muted); margin-top:14px; line-height:1.4;">
+        Connectez-vous avec votre compte Google pour synchroniser et déverrouiller votre agenda automatiquement.
       </div>
-
-      <form onsubmit="handleAuthSubmit(event)">
-        <div class="auth-input-wrapper">
-          <input type="password" id="authPinInput" class="auth-input" placeholder="••••" maxlength="30" autocomplete="current-password">
-          <button type="button" class="auth-toggle-pwd" onclick="togglePinVisibility()" title="Afficher/Masquer">👁️</button>
-        </div>
-        <div id="authErrorMsg" style="color:#ef4444; font-size:0.82rem; font-weight:700; min-height:18px; margin-bottom:8px;"></div>
-
-        <label style="display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:14px; font-size:0.84rem; color:var(--text-muted); cursor:pointer;">
-          <input type="checkbox" id="authRememberCheckbox" checked style="width:16px; height:16px; accent-color:var(--accent-color);">
-          <span>Rester connecté sur cet appareil</span>
-        </label>
-
-        <button type="submit" class="auth-btn-unlock">
-          🔓 Valider le code secret
-        </button>
-      </form>
-
-      <div style="margin-top:12px;">
-        <button type="button" onclick="promptResetPin()" style="background:none; border:none; color:var(--accent-color); font-size:0.78rem; font-weight:700; text-decoration:underline; cursor:pointer;">
-          🔑 Personnaliser le code secret de secours
-        </button>
-      </div>
+      <div id="authErrorMsg" style="color:#ef4444; font-size:0.82rem; font-weight:700; min-height:18px; margin-top:8px;"></div>
     </div>
   </div>
 
@@ -1521,24 +1400,16 @@
         </div>
       </div>
 
-      <!-- CARTE BIOMÉTRIE FACE ID / TOUCH ID -->
+      <!-- CARTE BIOMÉTRIE PIXEL 10 (EMPREINTE DIGITALE / FACE UNLOCK) -->
       <div style="background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-md); padding:14px; margin-bottom:14px;">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
-          <strong style="font-size:0.86rem; color:var(--text-main);">🪪 Face ID / Touch ID</strong>
+          <strong style="font-size:0.86rem; color:var(--text-main);">👆 Empreinte Pixel 10 / Face Unlock</strong>
           <span id="settingsBioBadge" style="font-size:0.72rem; font-weight:800; padding:3px 8px; border-radius:12px; background:rgba(148,163,184,0.15); color:var(--text-muted);">Désactivé</span>
         </div>
-        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">Déverrouillez instantanément l'agenda sans code sur cet appareil.</p>
+        <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:10px;">Déverrouillez instantanément l'agenda avec l'empreinte de votre Pixel 10.</p>
         <button type="button" id="btnSettingsBioToggle" class="btn btn-glass" style="width:100%; min-height:40px; font-size:0.82rem;" onclick="toggleBiometricsRegistration()">
-          🪪 Activer Face ID sur cet appareil
+          👆 Activer l'empreinte sur ce Pixel 10
         </button>
-      </div>
-
-      <div style="margin-bottom:16px;">
-        <label style="font-size:0.84rem; font-weight:700; display:block; margin-bottom:6px;">🔒 Code secret de secours (PIN) :</label>
-        <div style="display:flex; gap:8px;">
-          <input type="password" id="inputNewPin" placeholder="Nouveau code" style="flex:1; min-height:44px; padding:10px; background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-sm); color:var(--text-main);">
-          <button class="btn btn-primary" style="min-height:44px;" onclick="saveNewPin()">Changer</button>
-        </div>
       </div>
 
       <div style="border-top:1px solid rgba(0,0,0,0.1); padding-top:14px; margin-bottom:16px;">
@@ -1609,26 +1480,11 @@
       setAppTheme(saved, true);
     }
 
-    // --- SÉCURITÉ, GOOGLE PUTER & WEBAUTHN BIOMÉTRIE ---
-    const DEFAULT_PIN_HASH = '5313e5bf17148de844ff74be3663d47c6e361ca469b30a36337701233c89a15e';
+    // --- SÉCURITÉ & AUTHENTIFICATION (GOOGLE + EMPREINTE PIXEL 10) ---
     const AUTH_CONFIG = {
       RP_NAME: 'Roulement SNCF 2027',
       BIOMETRIC_STORAGE_KEY: 'sncf_2027_biometric_cred_id'
     };
-
-    function togglePinVisibility() {
-      const p = document.getElementById('authPinInput');
-      if (p) p.type = p.type === 'password' ? 'text' : 'password';
-    }
-
-    async function sha256(str) {
-      try {
-        if (!window.crypto || !window.crypto.subtle) return "";
-        const buf = new TextEncoder().encode(str);
-        const hashBuf = await crypto.subtle.digest('SHA-256', buf);
-        return Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
-      } catch(e) { return ""; }
-    }
 
     function updateBioUI() {
       const hasBio = !!localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
@@ -1639,17 +1495,17 @@
       const btn = document.getElementById('btnSettingsBioToggle');
       if (badge && btn) {
         if (hasBio) {
-          badge.innerText = 'Activé ✓';
-          badge.style.background = 'rgba(16, 185, 129, 0.15)';
-          badge.style.color = '#10b981';
-          btn.innerText = '🗑️ Désactiver Face ID sur cet appareil';
-          btn.className = 'btn btn-danger';
+          badge.innerText = "Activé ✓";
+          badge.style.background = "rgba(16, 185, 129, 0.15)";
+          badge.style.color = "#10b981";
+          btn.innerText = "🗑️ Désactiver l'empreinte sur ce Pixel 10";
+          btn.className = "btn btn-danger";
         } else {
-          badge.innerText = 'Désactivé';
-          badge.style.background = 'rgba(148, 163, 184, 0.15)';
-          badge.style.color = 'var(--text-muted)';
-          btn.innerText = '🪪 Activer Face ID sur cet appareil';
-          btn.className = 'btn btn-glass';
+          badge.innerText = "Désactivé";
+          badge.style.background = "rgba(148, 163, 184, 0.15)";
+          badge.style.color = "var(--text-muted)";
+          btn.innerText = "👆 Activer l'empreinte sur ce Pixel 10";
+          btn.className = "btn btn-glass";
         }
       }
     }
@@ -1657,10 +1513,10 @@
     async function toggleBiometricsRegistration() {
       const hasBio = !!localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
       if (hasBio) {
-        if (confirm("Désactiver Face ID / Touch ID sur cet appareil ?")) {
+        if (confirm("Désactiver le déverrouillage par empreinte sur ce Pixel 10 ?")) {
           localStorage.removeItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
           updateBioUI();
-          showToast("Face ID désactivé sur cet appareil.");
+          showToast("Empreinte désactivée.");
         }
         return;
       }
@@ -1674,9 +1530,16 @@
       }
       try {
         if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
-          alert("L'activation de Face ID requiert une connexion sécurisée (HTTPS ou localhost).");
+          alert("L'activation de l'empreinte requiert une connexion sécurisée HTTPS.");
           return false;
         }
+
+        const isAvailable = await PublicKeyCredential.isUserVerifyingPlatformAuthenticatorAvailable();
+        if (!isAvailable) {
+          alert("Aucun capteur biométrique (Empreinte Pixel / Face Unlock) détecté sur cet appareil.");
+          return false;
+        }
+
         const challenge = new Uint8Array(32);
         window.crypto.getRandomValues(challenge);
         const userId = new Uint8Array(16);
@@ -1691,15 +1554,14 @@
             user: {
               id: userId,
               name: 'riadh',
-              displayName: 'Riadh'
+              displayName: 'Riadh (Pixel 10)'
             },
             pubKeyCredParams: [
-              { type: "public-key", alg: -7 },   // ES256 (iOS FaceID/TouchID & Android)
-              { type: "public-key", alg: -257 }  // RS256 (Windows Hello)
+              { type: "public-key", alg: -7 }   // ES256 (Natif Android Titan M2 / Pixel Imprint & Apple)
             ],
             authenticatorSelection: {
-              authenticatorAttachment: "platform",
-              userVerification: "required",
+              authenticatorAttachment: "platform", // Force la puce interne du Pixel 10 (empreinte / visage)
+              userVerification: "required",        // Exige l'empreinte ou le visage
               residentKey: "preferred"
             },
             timeout: 60000
@@ -1711,13 +1573,13 @@
           const credIdBase64 = btoa(String.fromCharCode(...new Uint8Array(credential.rawId)));
           localStorage.setItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY, credIdBase64);
           updateBioUI();
-          showToast("Face ID activé avec succès !", "🪪");
+          showToast("Empreinte Pixel 10 activée avec succès !", "👆");
           return true;
         }
       } catch(err) {
         console.error("Erreur WebAuthn register:", err);
         if (err.name !== 'NotAllowedError') {
-          alert("Impossible d'activer la biométrie : " + (err.message || err.name));
+          alert("Impossible d'activer l'empreinte : " + (err.message || err.name));
         }
         return false;
       }
@@ -1739,7 +1601,7 @@
             allowCredentials: [{
               type: "public-key",
               id: rawId,
-              transports: ["internal"]
+              transports: ["internal", "hybrid"]
             }],
             userVerification: "required",
             timeout: 60000
@@ -1749,17 +1611,18 @@
         const assertion = await navigator.credentials.get(getOptions);
         if (assertion) {
           sessionStorage.setItem('sncf_session_unlocked', 'true');
+          localStorage.setItem('sncf_remember_unlocked', 'true');
           const overlay = document.getElementById('authOverlay');
           overlay.classList.add('hidden');
           overlay.style.display = 'none';
-          showToast("Bienvenue Riadh !", "🪪");
+          showToast("Bienvenue Riadh !", "👆");
           return true;
         }
       } catch(err) {
         console.warn("Échec ou annulation biométrique:", err);
         const errEl = document.getElementById('authErrorMsg');
         if (errEl && err.name !== 'NotAllowedError') {
-          errEl.innerText = "Biométrie non reconnue.";
+          errEl.innerText = "Empreinte non reconnue. Utilisez Google.";
         }
         return false;
       }
@@ -1777,10 +1640,15 @@
         if (puter.auth.isSignedIn()) {
           isPuterConnected = true;
           sessionStorage.setItem('sncf_session_unlocked', 'true');
-          const remember = document.getElementById('authRememberCheckbox')?.checked;
-          if (remember) localStorage.setItem('sncf_remember_unlocked', 'true');
+          localStorage.setItem('sncf_remember_unlocked', 'true'); // Auto-connexion permanente sur Pixel 10
 
           const user = await puter.auth.getUser();
+          localStorage.setItem('sncf_google_user', JSON.stringify({
+            username: user.username,
+            email: user.email || user.username,
+            ts: Date.now()
+          }));
+
           const overlay = document.getElementById('authOverlay');
           overlay.classList.add('hidden');
           overlay.style.display = 'none';
@@ -1788,24 +1656,33 @@
 
           updateSettingsAuthUI();
           syncWithPuter(false);
+
+          // Si l'appareil supporte la biométrie (Pixel 10) et que ce n'est pas encore activé, suggérer l'empreinte
+          const hasBio = localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
+          if (!hasBio && window.PublicKeyCredential) {
+            setTimeout(() => {
+              showToast("💡 Astuce : Vous pouvez activer l'empreinte Pixel 10 dans les Paramètres ⚙️ !", "👆");
+            }, 3000);
+          }
         }
       } catch(err) {
         console.error("Échec connexion Puter:", err);
-        if (errEl) errEl.innerText = "Connexion annulée ou fermée.";
+        if (errEl) errEl.innerText = "Connexion fermée ou annulée.";
       }
     }
 
     async function logoutPuter() {
       if (typeof puter !== 'undefined' && puter.auth) {
-        await puter.auth.signOut();
+        try { await puter.auth.signOut(); } catch(e) {}
       }
       isPuterConnected = false;
       localStorage.removeItem('sncf_remember_unlocked');
+      localStorage.removeItem('sncf_google_user');
       sessionStorage.removeItem('sncf_session_unlocked');
       closeSettingsModal();
       lockApp();
       updateSettingsAuthUI();
-      showToast("Déconnecté de Google / Puter");
+      showToast("Déconnecté de Google");
     }
 
     function updateSettingsAuthUI() {
@@ -1837,20 +1714,30 @@
 
     async function checkAuthOnLoad() {
       const overlay = document.getElementById('authOverlay');
-      const isUnlocked = sessionStorage.getItem('sncf_session_unlocked') === 'true' || localStorage.getItem('sncf_remember_unlocked') === 'true';
+      
+      // AUTO-UNLOCK SILENCIEUX SUR PIXEL 10 & SMARTPHONE :
+      // Si une session Google est active (Puter ou localStorage persistant), on entre directement !
+      const isRemembered = localStorage.getItem('sncf_remember_unlocked') === 'true';
+      const isSession = sessionStorage.getItem('sncf_session_unlocked') === 'true';
+      const hasGoogleUser = !!localStorage.getItem('sncf_google_user');
+      const isPuterAuth = (typeof puter !== 'undefined' && puter.auth && puter.auth.isSignedIn());
 
       updateBioUI();
       updateSettingsAuthUI();
 
-      if (isUnlocked) {
+      if (isRemembered || isSession || hasGoogleUser || isPuterAuth) {
+        // Déverrouillage automatique immédiat sans aucune friction
+        sessionStorage.setItem('sncf_session_unlocked', 'true');
         overlay.classList.add('hidden');
         overlay.style.display = 'none';
         return;
       }
 
+      // Première visite ou après déconnexion manuelle
       overlay.classList.remove('hidden');
       overlay.style.display = 'flex';
 
+      // Si l'empreinte Pixel 10 est déjà activée, la solliciter
       const hasBio = localStorage.getItem(AUTH_CONFIG.BIOMETRIC_STORAGE_KEY);
       if (hasBio && window.PublicKeyCredential) {
         setTimeout(() => {
@@ -1859,76 +1746,15 @@
       }
     }
 
-    async function handleAuthSubmit(e) {
-      if (e) e.preventDefault();
-      const input = document.getElementById('authPinInput');
-      const err = document.getElementById('authErrorMsg');
-      const card = document.getElementById('authCard');
-      const remember = document.getElementById('authRememberCheckbox').checked;
-      const val = input.value.trim();
-
-      if (!val) { err.innerText = "Veuillez saisir votre code."; return; }
-
-      const customHash = localStorage.getItem('sncf_custom_pin_hash') || DEFAULT_PIN_HASH;
-      const enteredHash = await sha256(val);
-
-      const ok = (val === '2027') || (enteredHash === DEFAULT_PIN_HASH) || (enteredHash === customHash);
-
-      if (ok) {
-        err.innerText = "";
-        sessionStorage.setItem('sncf_session_unlocked', 'true');
-        if (remember) localStorage.setItem('sncf_remember_unlocked', 'true');
-        else localStorage.removeItem('sncf_remember_unlocked');
-        document.getElementById('authOverlay').classList.add('hidden');
-        document.getElementById('authOverlay').style.display = 'none';
-        showToast("Bienvenue Riadh !");
-      } else {
-        err.innerText = "Code d'accès incorrect.";
-        input.value = "";
-        card.classList.remove('auth-shake');
-        void card.offsetWidth;
-        card.classList.add('auth-shake');
-        input.focus();
-      }
-    }
-
     function lockApp() {
       sessionStorage.removeItem('sncf_session_unlocked');
       localStorage.removeItem('sncf_remember_unlocked');
+      localStorage.removeItem('sncf_google_user');
       const overlay = document.getElementById('authOverlay');
       overlay.classList.remove('hidden');
       overlay.style.display = 'flex';
-      const p = document.getElementById('authPinInput');
-      if (p) { p.value = ''; p.focus(); }
+      updateBioUI();
       showToast("Agenda verrouillé 🔒");
-    }
-
-    async function promptResetPin() {
-      const n = prompt("Entrez votre nouveau code secret de secours :");
-      if (n && n.trim().length >= 2) {
-        const trimmed = n.trim();
-        const hash = await sha256(trimmed);
-        if (hash) {
-          localStorage.setItem('sncf_custom_pin_hash', hash);
-          localStorage.removeItem('sncf_custom_pin');
-        }
-        const p = document.getElementById('authPinInput');
-        if (p) p.value = trimmed;
-        alert("Nouveau code enregistré !\nCliquez sur Valider le code secret !");
-      }
-    }
-
-    async function saveNewPin() {
-      const p = document.getElementById('inputNewPin').value.trim();
-      if (!p || p.length < 2) { alert("Code trop court (2 caractères minimum)."); return; }
-      const hash = await sha256(p);
-      if (hash) {
-        localStorage.setItem('sncf_custom_pin_hash', hash);
-        localStorage.removeItem('sncf_custom_pin');
-      }
-      document.getElementById('inputNewPin').value = '';
-      closeSettingsModal();
-      showToast("Nouveau mot de passe enregistré 🔒");
     }
 
     // --- DONNÉES & CALCULS ---
