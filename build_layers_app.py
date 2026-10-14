@@ -1283,6 +1283,67 @@ HTML_CONTENT = """<!DOCTYPE html>
       font-weight: 600;
     }
 
+    /* ==========================================================================
+       VACANCES SCOLAIRES (ZONE C) & TOGGLES
+       ========================================================================== */
+    .switch-toggle-track {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .switch-toggle-track input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .switch-toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(148, 163, 184, 0.35);
+      border-radius: 24px;
+      transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .switch-toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+      transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .switch-toggle-track input:checked + .switch-toggle-slider {
+      background-color: var(--accent-color);
+    }
+    .switch-toggle-track input:checked + .switch-toggle-slider:before {
+      transform: translateX(20px);
+    }
+
+    .school-vacation-badge {
+      font-size: 0.6rem;
+      line-height: 1;
+      padding: 1px 3px;
+      border-radius: 4px;
+      background: rgba(139, 92, 246, 0.18);
+      color: #7c3aed;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      cursor: help;
+    }
+    [data-theme="gemini"] .school-vacation-badge {
+      background: rgba(167, 139, 250, 0.22);
+      color: #c4b5fd;
+    }
+    .cal-cell.school-vacation-day {
+      box-shadow: inset 0 -2px 0 0 rgba(139, 92, 246, 0.6);
+    }
 
     /* Toast */
     .toast-pill {
@@ -1651,6 +1712,97 @@ HTML_CONTENT = """<!DOCTYPE html>
         </div>
       </div>
 
+      <!-- CARTE CALENDRIER SCOLAIRE ZONE C (ACADÉMIE DE TOULOUSE / LANNEMEZAN) -->
+      <div style="background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-md); padding:14px; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-size:1.1rem;">🎒</span>
+            <strong style="font-size:0.86rem; color:var(--text-main);">Vacances Scolaires 2027</strong>
+          </div>
+          <span style="font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:10px; background:rgba(139,92,246,0.15); color:#8b5cf6;">Zone C (Toulouse)</span>
+        </div>
+        
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; padding:4px 0;">
+          <span style="font-size:0.78rem; font-weight:700; color:var(--text-main);">Afficher sur l'agenda :</span>
+          <label class="switch-toggle-track">
+            <input type="checkbox" id="toggleSchoolVacations" onchange="toggleSchoolVacationsOverlay(this.checked)">
+            <span class="switch-toggle-slider"></span>
+          </label>
+        </div>
+
+        <details style="font-size:0.78rem; cursor:pointer;">
+          <summary style="font-weight:700; color:var(--text-muted); outline:none; margin-bottom:8px;">
+            📋 Voir les 7 périodes officielles 2027...
+          </summary>
+          <div id="schoolVacationsList" style="display:flex; flex-direction:column; gap:6px; margin-top:6px;">
+            <!-- Rempli dynamiquement en JS -->
+          </div>
+        </details>
+      </div>
+
+      <!-- CARTE SIMULATEUR D'IMPACT MALADIE (PRORATA CA & VT) -->
+      <div style="background:var(--card-elevated-bg); border:var(--card-elevated-border); border-radius:var(--radius-md); padding:14px; margin-bottom:14px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="font-size:1.1rem;">🩺</span>
+            <strong style="font-size:0.86rem; color:var(--text-main);">Simulateur Prorata Maladie</strong>
+          </div>
+          <span style="font-size:0.7rem; font-weight:800; padding:2px 8px; border-radius:10px; background:rgba(14,165,233,0.15); color:#0284c7;">RH00143 / DDADUE</span>
+        </div>
+        <p style="font-size:0.76rem; color:var(--text-muted); margin-bottom:12px; line-height:1.4;">
+          Estimez l'impact d'un arrêt maladie sur vos droits annuels de Congés (CA) et de Vacations (VT).
+        </p>
+
+        <!-- Sélecteur Nature de l'arrêt -->
+        <div style="margin-bottom:12px;">
+          <label style="font-size:0.75rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">Nature de l'arrêt :</label>
+          <select id="simulTypeArret" style="width:100%; min-height:38px; padding:6px 10px; border-radius:var(--radius-sm); border:var(--card-elevated-border); background:var(--card-bg); color:var(--text-main); font-weight:700;" onchange="calculateSickProrata()">
+            <option value="MO">Maladie Ordinaire (MO)</option>
+            <option value="ATMP">Accident Travail / Maladie Pro (AT/MP)</option>
+          </select>
+        </div>
+
+        <!-- Curseur jours de maladie -->
+        <div style="margin-bottom:12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span style="font-size:0.76rem; color:var(--text-muted); font-weight:700;">Jours d'arrêt en 2027 :</span>
+            <span id="simulSickDaysLabel" style="font-size:0.9rem; font-weight:800; color:var(--accent-color);">0 jour</span>
+          </div>
+          <input type="range" id="simulSickSlider" min="0" max="365" value="0" style="width:100%; accent-color:var(--accent-color); cursor:pointer;" oninput="onSickSliderInput(this.value)">
+          <div style="display:flex; justify-content:space-between; font-size:0.65rem; color:var(--text-muted); margin-top:2px;">
+            <span>0j</span>
+            <span>30j (franchise CA)</span>
+            <span>90j</span>
+            <span>180j</span>
+            <span>365j</span>
+          </div>
+        </div>
+
+        <!-- Grille des Résultats KPI -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:10px;">
+          <div style="background:var(--card-bg); border:var(--card-elevated-border); border-radius:var(--radius-sm); padding:10px; text-align:center;">
+            <div style="font-size:0.7rem; font-weight:700; color:var(--text-muted);">Solde CA estimé</div>
+            <div id="simulResCA" style="font-size:1.25rem; font-weight:800; color:#ec4899; margin:2px 0;">23.0 j</div>
+            <div id="simulDeltaCA" style="font-size:0.68rem; font-weight:700; color:#10b981;">Aucun abattement</div>
+          </div>
+          <div style="background:var(--card-bg); border:var(--card-elevated-border); border-radius:var(--radius-sm); padding:10px; text-align:center;">
+            <div style="font-size:0.7rem; font-weight:700; color:var(--text-muted);">Solde VT estimé</div>
+            <div id="simulResVT" style="font-size:1.25rem; font-weight:800; color:#0284c7; margin:2px 0;">44.0 j</div>
+            <div id="simulDeltaVT" style="font-size:0.68rem; font-weight:700; color:#10b981;">Aucun abattement</div>
+          </div>
+        </div>
+
+        <!-- Explication réglementaire -->
+        <div id="simulLegalNotice" style="font-size:0.7rem; color:var(--text-muted); line-height:1.35; background:rgba(0,0,0,0.03); border-radius:var(--radius-sm); padding:8px; margin-bottom:10px;">
+          💡 En maladie ordinaire : franchise de 30 jours sans perte sur les CA, puis acquisition garantie à 80% (plancher légal européen DDADUE 2024 de 20j/an). Les VT sont proratisés au temps de travail effectif au-delà de 15 jours d'absence.
+        </div>
+
+        <!-- Bouton Appliquer (optionnel comme validé par l'utilisateur) -->
+        <button type="button" class="btn btn-glass" style="width:100%; min-height:38px; font-size:0.78rem;" onclick="applySimulatedQuotas()">
+          ⚡ Appliquer ces quotas à mes compteurs principaux
+        </button>
+      </div>
+
       <div style="display:flex; flex-direction:column; gap:8px;">
         <button class="btn btn-glass" onclick="exportBackupJSON()" style="width:100%;">💾 Exporter sauvegarde (.json)</button>
         <label class="btn btn-glass" style="width:100%; cursor:pointer;">
@@ -1684,6 +1836,24 @@ HTML_CONTENT = """<!DOCTYPE html>
     let activeDayDate = null;
     let currentDockView = 'grid';
     let isPuterConnected = false;
+
+    // --- VACANCES SCOLAIRES 2027 (ZONE C - ACADÉMIE DE TOULOUSE / LANNEMEZAN) ---
+    const VACANCES_ZONE_C_2027 = [
+      { id: "noel_2026", label: "Fin Noël 2026", debut: "2027-01-01", fin: "2027-01-03", reprise: "Reprise le lun. 4 janv." },
+      { id: "hiver_2027", label: "Vacances d'Hiver", debut: "2027-02-13", fin: "2027-02-28", reprise: "Reprise le lun. 1er mars" },
+      { id: "printemps_2027", label: "Vacances de Printemps", debut: "2027-04-10", fin: "2027-04-25", reprise: "Reprise le lun. 26 avr." },
+      { id: "ascension_2027", label: "Pont de l'Ascension", debut: "2027-05-06", fin: "2027-05-09", reprise: "Reprise le lun. 10 mai" },
+      { id: "ete_2027", label: "Grandes Vacances d'Été", debut: "2027-07-03", fin: "2027-08-31", reprise: "Rentrée le mer. 1er sept." },
+      { id: "toussaint_2027", label: "Vacances de la Toussaint", debut: "2027-10-23", fin: "2027-11-07", reprise: "Reprise le lun. 8 nov." },
+      { id: "noel_2027", label: "Vacances de Noël 2027", debut: "2027-12-18", fin: "2027-12-31", reprise: "Reprise le lun. 3 janv. 2028" }
+    ];
+
+    let showSchoolVacations = localStorage.getItem('sncf_show_school_vacations') !== 'false';
+    let simulatedQuotasCache = null;
+
+    function getZoneCVacation(dateStr) {
+      return VACANCES_ZONE_C_2027.find(v => dateStr >= v.debut && dateStr <= v.fin);
+    }
 
     // --- MULTI-THÈME (SONOMA / AMIE / GEMINI) ---
     function setAppTheme(themeName, silent = false) {
@@ -2084,9 +2254,15 @@ HTML_CONTENT = """<!DOCTYPE html>
           cell.classList.add('status-' + abs.status);
         }
 
+        const vSchool = showSchoolVacations ? getZoneCVacation(day.date) : null;
+        if (vSchool) {
+          cell.classList.add('school-vacation-day');
+        }
+
         cell.onclick = () => openDayModal(day.date);
 
         let holidayIcon = day.isHoliday ? '<span style="font-size:0.65rem;" title="' + day.holidayName + '">🎉</span>' : '';
+        let schoolIcon = vSchool ? '<span class="school-vacation-badge" title="Zone C : ' + vSchool.label + '">🎒</span>' : '';
         let shiftClass = 'shift-' + (day.baseCode.startsWith('TNY') ? day.baseCode.toLowerCase() : 'rp');
 
         let absenceHtml = '';
@@ -2100,7 +2276,7 @@ HTML_CONTENT = """<!DOCTYPE html>
         cell.innerHTML = `
           <div class="cell-top-bar">
             <span class="cell-num">${day.day}</span>
-            ${holidayIcon}
+            <div style="display:flex; align-items:center; gap:2px;">${holidayIcon}${schoolIcon}</div>
           </div>
           ${absenceHtml}
           <div class="cell-shift-pill ${shiftClass}">${day.baseCode}</div>
@@ -2125,10 +2301,14 @@ HTML_CONTENT = """<!DOCTYPE html>
           absBadge = `<span style="font-size:0.75rem; font-weight:700; color:${abs.status==='accepted'?'#10b981':'#f59e0b'};"> [${abs.type} ${abs.status}]</span>`;
         }
 
+        const vSchool = showSchoolVacations ? getZoneCVacation(day.date) : null;
+        let schoolBadge = vSchool ? `<span class="school-vacation-badge" style="font-size:0.68rem; margin-left:6px;" title="Zone C: ${vSchool.label}">🎒 ${vSchool.label}</span>` : '';
+        let holidayBadge = day.isHoliday ? `<span style="font-size:0.75rem; font-weight:700; color:#ea580c; margin-right:4px;">🎉 ${day.holidayName} •</span>` : '';
+
         card.innerHTML = `
           <div>
-            <div style="font-weight:800; font-size:1rem; color:var(--text-main);">${day.weekday} ${day.day} ${MONTH_NAMES[day.month-1]}</div>
-            <div style="font-size:0.78rem; color:var(--text-muted);">${day.holidayName ? '🎉 ' + day.holidayName : ''} ${day.hoursLabel || 'Repos'}</div>
+            <div style="font-weight:800; font-size:1rem; color:var(--text-main);">${day.weekday} ${day.day} ${MONTH_NAMES[day.month-1]}${schoolBadge}</div>
+            <div style="font-size:0.78rem; color:var(--text-muted);">${holidayBadge} ${day.hoursLabel || 'Repos'}</div>
           </div>
           <div style="display:flex; align-items:center; gap:8px;">
             <span class="cell-shift-pill shift-${day.baseCode.toLowerCase()}">${day.baseCode}</span>
@@ -2194,7 +2374,12 @@ HTML_CONTENT = """<!DOCTYPE html>
       if (!day) return;
 
       document.getElementById('modalDayTitle').innerText = `${day.weekday} ${day.day} ${MONTH_NAMES[day.month-1]} 2027`;
-      document.getElementById('modalDaySubtitle').innerText = `Poste : ${day.baseCode} ${day.hoursLabel ? '(' + day.hoursLabel + ')' : '(Repos)'}`;
+      
+      let modalSub = `Poste : ${day.baseCode} ${day.hoursLabel ? '(' + day.hoursLabel + ')' : '(Repos)'}`;
+      if (day.isHoliday) modalSub += ` • 🎉 ${day.holidayName}`;
+      const vSchoolModal = getZoneCVacation(dateStr);
+      if (vSchoolModal) modalSub += ` • 🎒 ${vSchoolModal.label} (Zone C)`;
+      document.getElementById('modalDaySubtitle').innerText = modalSub;
 
       const isRestDay = !day.isWork;
       const btnVT = document.getElementById('btnModalVT');
@@ -2432,8 +2617,139 @@ HTML_CONTENT = """<!DOCTYPE html>
       }
     }
 
-    function openSettingsModal() { document.getElementById('settingsModalBackdrop').classList.add('active'); }
+    function openSettingsModal() {
+      document.getElementById('settingsModalBackdrop').classList.add('active');
+      const toggleEl = document.getElementById('toggleSchoolVacations');
+      if (toggleEl) toggleEl.checked = showSchoolVacations;
+      populateSchoolVacationsList();
+      calculateSickProrata();
+    }
     function closeSettingsModal() { document.getElementById('settingsModalBackdrop').classList.remove('active'); }
+
+    // --- GESTION VACANCES SCOLAIRES (ZONE C) ---
+    function populateSchoolVacationsList() {
+      const container = document.getElementById('schoolVacationsList');
+      if (!container) return;
+      container.innerHTML = '';
+      VACANCES_ZONE_C_2027.forEach(v => {
+        const [sy, sm, sd] = v.debut.split('-');
+        const [ey, em, ed] = v.fin.split('-');
+        const item = document.createElement('div');
+        item.style.cssText = 'display:flex; justify-content:space-between; align-items:center; padding:6px 8px; border-radius:6px; background:var(--card-bg); font-size:0.75rem; border:1px solid rgba(139,92,246,0.15);';
+        item.innerHTML = `
+          <div>
+            <strong style="color:var(--text-main);">${v.label}</strong>
+            <div style="font-size:0.68rem; color:var(--text-muted);">${v.reprise}</div>
+          </div>
+          <span style="font-weight:700; color:#8b5cf6; font-size:0.72rem; white-space:nowrap;">${sd}/${sm} ➔ ${ed}/${em}</span>
+        `;
+        container.appendChild(item);
+      });
+    }
+
+    function toggleSchoolVacationsOverlay(checked) {
+      showSchoolVacations = checked;
+      localStorage.setItem('sncf_show_school_vacations', checked ? 'true' : 'false');
+      renderCurrentView();
+      showToast(checked ? "Vacances Zone C visibles 🎒" : "Vacances Zone C masquées", "🎒");
+    }
+
+    // --- SIMULATEUR D'IMPACT MALADIE (PRORATA CA & VT) ---
+    function roundToHalfUp(num) {
+      return Math.ceil(num * 2) / 2;
+    }
+
+    function calculateSickProrata() {
+      const type = document.getElementById('simulTypeArret')?.value || 'MO';
+      const sickDays = parseInt(document.getElementById('simulSickSlider')?.value, 10) || 0;
+      const caBase = quotaConge || 23;
+      const vtBase = quotaVT || 44;
+
+      const sickDaysLabel = document.getElementById('simulSickDaysLabel');
+      if (sickDaysLabel) {
+        sickDaysLabel.textContent = `${sickDays} jour${sickDays > 1 ? 's' : ''}`;
+      }
+
+      // 1. Calcul CA
+      let caFinal = caBase;
+      let lossCA = 0;
+      if (type === 'ATMP') {
+        caFinal = caBase;
+        lossCA = 0;
+      } else {
+        if (sickDays <= 30) {
+          caFinal = caBase;
+          lossCA = 0;
+        } else {
+          const workedRatio = (365 - sickDays) / 365;
+          const sickRatio = sickDays / 365;
+          const legalMin = Math.min(20, caBase);
+          const rawCA = (caBase * workedRatio) + (legalMin * sickRatio);
+          caFinal = roundToHalfUp(rawCA);
+          lossCA = Math.max(0, +(caBase - caFinal).toFixed(1));
+        }
+      }
+
+      // 2. Calcul VT
+      let vtFinal = vtBase;
+      let lossVT = 0;
+      if (sickDays >= 15) {
+        const workedRatio = (365 - sickDays) / 365;
+        const rawVT = vtBase * workedRatio;
+        vtFinal = roundToHalfUp(rawVT);
+        lossVT = Math.max(0, +(vtBase - vtFinal).toFixed(1));
+      }
+
+      const elResCA = document.getElementById('simulResCA');
+      const elDeltaCA = document.getElementById('simulDeltaCA');
+      const elResVT = document.getElementById('simulResVT');
+      const elDeltaVT = document.getElementById('simulDeltaVT');
+
+      if (elResCA) elResCA.textContent = `${caFinal.toFixed(1)} j`;
+      if (elResVT) elResVT.textContent = `${vtFinal.toFixed(1)} j`;
+
+      if (elDeltaCA) {
+        if (lossCA > 0) {
+          elDeltaCA.textContent = `-${lossCA} j (abattement)`;
+          elDeltaCA.style.color = '#ef4444';
+        } else {
+          elDeltaCA.textContent = type === 'ATMP' ? 'Maintien 100% (AT/MP)' : (sickDays <= 30 ? 'Couvert franchise 30j' : 'Aucun abattement');
+          elDeltaCA.style.color = '#10b981';
+        }
+      }
+
+      if (elDeltaVT) {
+        if (lossVT > 0) {
+          elDeltaVT.textContent = `-${lossVT} j (prorata)`;
+          elDeltaVT.style.color = '#ef4444';
+        } else {
+          elDeltaVT.textContent = sickDays < 15 ? 'Sous le seuil 15j' : 'Aucun abattement';
+          elDeltaVT.style.color = '#10b981';
+        }
+      }
+
+      simulatedQuotasCache = { ca: caFinal, vt: vtFinal };
+    }
+
+    function onSickSliderInput(val) {
+      calculateSickProrata();
+    }
+
+    function applySimulatedQuotas() {
+      if (!simulatedQuotasCache) return;
+      if (confirm(`Appliquer les quotas simulés : ${simulatedQuotasCache.vt} VT et ${simulatedQuotasCache.ca} CA à vos compteurs annuels ?`)) {
+        quotaVT = simulatedQuotasCache.vt;
+        quotaConge = simulatedQuotasCache.ca;
+        const inpVT = document.getElementById('inputSettingsVT');
+        const inpCA = document.getElementById('inputSettingsCA');
+        if (inpVT) inpVT.value = quotaVT;
+        if (inpCA) inpCA.value = quotaConge;
+        saveData();
+        updateAllStats();
+        renderCurrentView();
+        showToast(`Quotas mis à jour : ${quotaVT} VT / ${quotaConge} CA`, '🩺');
+      }
+    }
 
     // --- PUTER CLOUD & EXPORTS ---
     async function initPuterState() {
